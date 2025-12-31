@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Loic Kebabla - Portfolio</title>
+    <title>11Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
@@ -123,25 +123,23 @@
             }
         };
 
-        function openModal(id) {
-            const project = projectDetails[id];
-            document.getElementById('modal-title').innerText = project.title;
-            document.getElementById('modal-why').innerText = project.why;
-            document.getElementById('modal-how').innerText = project.how;
-            document.getElementById('modal-preview-text').innerText = project.preview;
-            document.getElementById('modal-overlay').style.display = 'flex';
-        }
+function openModal(id) {
+    const project = projectDetails[id];
+    document.getElementById('modal-title').innerText = project.title;
+    document.getElementById('modal-why').innerText = project.why;
+    document.getElementById('modal-how').innerText = project.how;
+    
+    // On met en FLEX pour que la fenêtre soit bien au milieu
+    document.getElementById('modal-overlay').style.display = 'flex';
+    // On bloque le scroll de la page derrière
+    document.body.style.overflow = 'hidden';
+}
 
-        function closeModal() {
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
-            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
-        }
+function closeModal() {
+    document.getElementById('modal-overlay').style.display = 'none';
+    // On remet le scroll
+    document.body.style.overflow = 'auto';
+}
     </script>
 </body>
 </html>
