@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Mes Projets</title>
-    <link rel="stylesheet" href="style.css">
+    <link id="theme-link" rel="stylesheet" href="style9_darkg.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
@@ -16,6 +16,11 @@
                 <li><a href="#" class="active">Accueil</a></li>
                 <li><a href="#">Projets</a></li>
                 <li><a href="#" class="btn-contact">Contact</a></li>
+                <li>
+                    <button class="theme-switch" onclick="toggleTheme()">
+                        🌙 / ☀️
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -95,6 +100,7 @@
     </div>
 
     <script>
+        // Tes fonctions d'origine pour le Modal
         function openModal(id) {
             document.getElementById('modal-overlay').style.display = 'flex';
         }
@@ -103,6 +109,18 @@
         }
         window.onclick = function(event) {
             if (event.target == document.getElementById('modal-overlay')) closeModal();
+        }
+
+        // Nouvelle fonction pour changer le thème (Jour/Nuit)
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-link');
+            const currentTheme = themeLink.getAttribute('href');
+            
+            if (currentTheme === 'style9_darkg.css') {
+                themeLink.setAttribute('href', 'style15.css');
+            } else {
+                themeLink.setAttribute('href', 'style9_darkg.css');
+            }
         }
     </script>
 </body>
