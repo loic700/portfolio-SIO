@@ -100,7 +100,6 @@
     </div>
 
     <script>
-        // Tes fonctions d'origine pour le Modal
         function openModal(id) {
             document.getElementById('modal-overlay').style.display = 'flex';
         }
@@ -111,7 +110,6 @@
             if (event.target == document.getElementById('modal-overlay')) closeModal();
         }
 
-        // Nouvelle fonction pour changer le thème (Jour/Nuit)
         function toggleTheme() {
             const themeLink = document.getElementById('theme-link');
             const currentTheme = themeLink.getAttribute('href');
