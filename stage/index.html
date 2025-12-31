@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
+    <title>111Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="style15.css">
@@ -26,7 +26,7 @@
                 <li><a href="../">Accueil</a></li>
                 <li><a href="." class="active">Stages</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -40,6 +40,8 @@
         <div class="timeline-item">
             <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
             <h3>NEOTEAMS.IO Cambrai</h3>
+            <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+            <p>Installation de services (Nextcloud), certificats SSL et maintenance matérielle.</p>
             
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
@@ -52,82 +54,76 @@
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Mise en place d'un serveur</h3>
                     <p>Installation et configuration complète sous Ubuntu.</p>
-                    <button class="btn-more" onclick="enableModal('modal-serveur')">En savoir plus →</button>
+                    <button class="btn-more" onclick="enableModal('serveur')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag in-progress">En cours 🛠️</span>
                     <h3>Portfolio Personnel</h3>
-                    <p>Développement de ce site interactif.</p>
-                    <button class="btn-more" onclick="enableModal('modal-portfolio')">En savoir plus →</button>
+                    <p>Développement de ce site dynamique.</p>
+                    <button class="btn-more" onclick="enableModal('portfolio')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Mise en place de Passbolt</h3>
+                    <h3>Passbolt</h3>
                     <p>Sécurisation des mots de passe en entreprise.</p>
-                    <button class="btn-more" onclick="enableModal('modal-passbolt')">En savoir plus →</button>
+                    <button class="btn-more" onclick="enableModal('passbolt')">En savoir plus →</button>
                 </article>
             </div>
         </div>
     </main>
 
-    <div class="modal-overlay" id="modal-serveur">
+    <div class="modal" id="serveur">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Mise en place d'un serveur</h2>
-                <button class="close-btn" onclick="disableModal('modal-serveur')">×</button>
+            <div class="header">
+                <h3>Mise en place d'un serveur</h3>
+                <span onclick="disableModal('serveur')" class="close_modal">×</span>
             </div>
-            <div class="modal-body">
+            <div class="body">
                 <h4>Pourquoi ?</h4>
-                <p>Centraliser les ressources et sécuriser l'accès aux données locales pour l'ensemble du parc informatique.</p>
+                <p>Centraliser les ressources et sécuriser l'accès aux données locales.</p>
                 <h4>Comment ?</h4>
-                <p>Installation d'Ubuntu Server 22.04 LTS, configuration des accès SSH sécurisés et mise en place d'un pare-feu restrictif.</p>
-                <h4>Détails techniques & Aperçu</h4>
-                <div class="scroll-area">
-                    <p>Ce projet a nécessité une attention particulière sur la gestion des droits utilisateurs et la stabilité des services réseau. (Test du défilement : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.)</p>
-                    <div class="img-placeholder"></div>
-                </div>
+                <p>Installation d'Ubuntu Server 22.04 LTS et configuration SSH.</p>
+                <h4>Détails & Aperçu technique</h4>
+                <p>Mise en place du pare-feu UFW. Ce projet a nécessité une attention particulière sur la gestion des droits.</p>
+                <div class="img-container"></div>
             </div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="modal-portfolio">
+    <div class="modal" id="portfolio">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Portfolio Personnel</h2>
-                <button class="close-btn" onclick="disableModal('modal-portfolio')">×</button>
+            <div class="header">
+                <h3>Portfolio Personnel</h3>
+                <span onclick="disableModal('portfolio')" class="close_modal">×</span>
             </div>
-            <div class="modal-body">
+            <div class="body">
                 <h4>Pourquoi ?</h4>
-                <p>Créer une vitrine pro pour présenter mon parcours et mes compétences en BTS SIO.</p>
+                <p>Créer une vitrine pro pour présenter mes stages et projets.</p>
                 <h4>Comment ?</h4>
-                <p>Développement en HTML5 et CSS3 avec un système de thèmes dynamique géré par JavaScript.</p>
-                <h4>Détails techniques & Aperçu</h4>
-                <div class="scroll-area">
-                    <p>Utilisation de Flexbox et CSS Grid pour une structure 100% responsive. Le choix du thème est sauvegardé dans le navigateur de l'utilisateur.</p>
-                    <div class="img-placeholder"></div>
-                </div>
+                <p>Développement HTML5, CSS3 et JavaScript.</p>
+                <h4>Détails & Aperçu technique</h4>
+                <p>Utilisation de variables CSS pour le switch de thème dynamique.</p>
+                <div class="img-container"></div>
             </div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="modal-passbolt">
+    <div class="modal" id="passbolt">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Mise en place de Passbolt</h2>
-                <button class="close-btn" onclick="disableModal('modal-passbolt')">×</button>
+            <div class="header">
+                <h3>Mise en place de Passbolt</h3>
+                <span onclick="disableModal('passbolt')" class="close_modal">×</span>
             </div>
-            <div class="modal-body">
+            <div class="body">
                 <h4>Pourquoi ?</h4>
-                <p>Assurer la confidentialité et le partage sécurisé des identifiants au sein d'une équipe technique.</p>
+                <p>Assurer la confidentialité des identifiants partagés en équipe.</p>
                 <h4>Comment ?</h4>
-                <p>Déploiement sur serveur Debian via Docker-compose et configuration de l'agent GPG.</p>
-                <h4>Détails techniques & Aperçu</h4>
-                <div class="scroll-area">
-                    <p>Configuration de certificats SSL et gestion du serveur SMTP pour les notifications de sécurité.</p>
-                    <div class="img-placeholder"></div>
-                </div>
+                <p>Déploiement sur Debian via Docker et GPG.</p>
+                <h4>Détails & Aperçu technique</h4>
+                <p>Configuration du chiffrement asymétrique pour les utilisateurs.</p>
+                <div class="img-container"></div>
             </div>
         </div>
     </div>
@@ -137,28 +133,19 @@
     <script>
         function enableModal(id) {
             document.getElementById(id).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Bloque le scroll derrière
+            document.body.style.overflow = 'hidden'; 
         }
-
         function disableModal(id) {
             document.getElementById(id).style.display = 'none';
-            document.body.style.overflow = 'auto'; // Réactive le scroll
+            document.body.style.overflow = 'auto';
         }
-
         function toggleTheme() {
             const themeLink = document.getElementById('theme-style');
             const isSunset = themeLink.getAttribute('href').includes('style15.css');
             themeLink.setAttribute('href', isSunset ? 'style9_darkg.css' : 'style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
-
-        // Fermer en cliquant à côté de la fenêtre
-        window.onclick = function(e) {
-            if (e.target.classList.contains('modal-overlay')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
+        window.onclick = function(e) { if (e.target.className === 'modal') { e.target.style.display = 'none'; document.body.style.overflow = 'auto'; } }
     </script>
 </body>
 </html>
