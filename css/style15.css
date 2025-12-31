@@ -302,13 +302,15 @@ footer {
 
 
 
-/* --- GRILLE & MODALE ULTRA-LARGE (SUNSET) --- */
-
+/* --- GRILLE 3 COLONNES & MODALE LARGE (SUNSET) --- */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* FORCE 3 COLONNES */
     gap: 2.5rem;
 }
+
+@media (max-width: 1024px) { .grid-container { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
 
 .theme-switch {
     background: rgba(255, 255, 255, 0.8); border: 2px solid var(--primary);
@@ -324,7 +326,7 @@ footer {
 .modal-content {
     background: white; border-radius: var(--radius); border: 2px solid white;
     padding: 4rem; 
-    max-width: 1450px; /* LARGEUR MAXIMUM IDENTIQUE AU DARK */
+    max-width: 1450px; /* ULTRA LARGE IDENTIQUE AU DARK */
     width: 95%; 
     max-height: 85vh; 
     overflow-y: auto; 

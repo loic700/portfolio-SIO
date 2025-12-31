@@ -313,17 +313,19 @@ footer {
 
 
 
-/* --- GRILLE & MODALE ULTRA-LARGE (DARK) --- */
-
+/* --- GRILLE 3 COLONNES & MODALE LARGE (DARK) --- */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* FORCE 3 COLONNES */
     gap: 2.5rem;
 }
 
+@media (max-width: 1024px) { .grid-container { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
+
 .theme-switch {
     background: rgba(15, 23, 42, 0.6); border: 2px solid rgba(255, 255, 255, 0.4);
-    color: white; padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer; transition: 0.3s;
+    color: white; padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer;
 }
 
 .modal-overlay {
@@ -335,10 +337,10 @@ footer {
 .modal-content {
     background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius);
     padding: 4rem; 
-    max-width: 1450px; /* LARGEUR MAXIMUM SUR LES COTÉS */
+    max-width: 1450px; /* ULTRA LARGE SUR LES COTÉS */
     width: 95%; 
     max-height: 85vh; 
-    overflow-y: auto; /* DÉFILEMENT ACTIF */
+    overflow-y: auto; 
     position: relative; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
 }
 
