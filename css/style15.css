@@ -302,16 +302,11 @@ footer {
 
 
 
-/* --- GRILLE 3 COLONNES & MODALE LARGE 1450px (SUNSET) --- */
+/* --- GRILLE 3 COLONNES & MODALE ULTRA LARGE (SUNSET) --- */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 PAR LIGNE */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
-}
-
-.theme-switch {
-    background: rgba(255, 255, 255, 0.8); border: 2px solid var(--primary);
-    color: var(--text-dark); padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer;
 }
 
 .modal {
@@ -321,13 +316,10 @@ footer {
 
 .modal-content {
     background: white; border-radius: var(--radius); border: 2px solid white;
-    padding: 4rem; 
-    max-width: 1450px; /* ULTRA LARGE */
-    width: 95%; max-height: 90vh; overflow-y: auto; position: relative;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+    padding: 3rem; max-width: 1450px; width: 95%; max-height: 90vh; overflow-y: auto;
+    position: relative; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
 }
 
-.modal .header { display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary); margin-bottom: 2rem; padding-bottom: 1rem; }
-.close_modal { cursor: pointer; font-size: 2.5rem; color: var(--secondary); }
-.modal h4 { color: var(--secondary); font-weight: 700; font-size: 1.4rem; margin-top: 1.5rem; }
-.modal p { color: #522a1f; line-height: 1.8; font-weight: 500; font-size: 1.1rem; }
+.modal-header { display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary); margin-bottom: 2rem; padding-bottom: 1rem; }
+.close_modal { color: var(--secondary); font-size: 2.5rem; border: none; background: none; cursor: pointer; }
+.modal-body h4 { color: var(--secondary); font-weight: 700; font-size: 1.3rem; margin-top: 1.5rem; }
