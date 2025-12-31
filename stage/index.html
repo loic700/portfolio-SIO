@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Loic Kebabla - Portfolio</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
+        // Initialisation immédiate du thème sauvegardé
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -17,6 +18,7 @@
     </script>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
@@ -29,49 +31,50 @@
                 <li><a href="../veilletechno/">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main class="container">
         <section class="hero-small">
-            <h1>Expériences Professionnelles</h1>
-            <p>Immersion en entreprise et mise en pratique.</p>
+            <h1>Expériences & Projets</h1>
+            <p>Immersion en entreprise et réalisations techniques.</p>
         </section>
 
-        <div class="container">
-            <div class="timeline-item">
-                <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
-                <h3>NEOTEAMS.IO Cambrai</h3>
-                <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+        <div class="timeline-item">
+            <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
+            <h3>NEOTEAMS.IO Cambrai</h3>
+            <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
 
-                <h2 class="section-title" style="margin-top: 4rem;">Mes Projets Récents</h2>
-                
-                <div class="grid-container">
-                    <article class="card">
-                        <span class="tag finished">Terminé ✅</span>
-                        <h3>Mise en place d'un serveur</h3>
-                        <p>Installation et configuration d'un serveur Ubuntu.</p>
-                        <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
-                    </article>
+            <hr style="margin: 4rem 0; opacity: 0.1;">
 
-                    <article class="card">
-                        <span class="tag in-progress">En cours 🛠️</span>
-                        <h3>Portfolio Personnel</h3>
-                        <p>Le site sur lequel vous naviguez actuellement.</p>
-                        <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
-                    </article>
+            <h2 class="section-title">Mes Projets Récents</h2>
+            
+            <div class="grid-container">
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Serveur Ubuntu</h3>
+                    <p>Installation et configuration d’un serveur.</p>
+                    <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
+                </article>
 
-                    <article class="card">
-                        <span class="tag finished">Terminé ✅</span>
-                        <h3>Mise en place de Passbolt</h3>
-                        <p>Installation et configuration du service Passbolt.</p>
-                        <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
-                    </article>
-                </div>
+                <article class="card">
+                    <span class="tag in-progress">En cours 🛠️</span>
+                    <h3>Portfolio</h3>
+                    <p>Création du site personnel dynamique.</p>
+                    <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Passbolt</h3>
+                    <p>Gestionnaire de mots de passe sécurisé.</p>
+                    <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
+                </article>
             </div>
         </div>
     </main>
@@ -83,14 +86,20 @@
                 <button class="close-btn" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body">
-                <h4>Pourquoi ?</h4>
-                <p id="modal-why"></p>
-                <h4>Comment ?</h4>
-                <p id="modal-how"></p>
-                <h4>Aperçu</h4>
-                <div class="modal-img-container">
-                    <div class="img-placeholder">🖼️ Capture d'écran</div>
-                    <div id="modal-scroll-content" class="scroll-text-box"></div>
+                <div class="modal-section">
+                    <h4>Pourquoi ?</h4>
+                    <p id="modal-why"></p>
+                </div>
+                <div class="modal-section">
+                    <h4>Comment ?</h4>
+                    <p id="modal-how"></p>
+                </div>
+                <div class="modal-section">
+                    <h4>Aperçu technique & Détails</h4>
+                    <div class="scroll-container">
+                        <p id="modal-long-text"></p>
+                        <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,41 +108,42 @@
     <footer><p>© 2025 - Loic Kebabla</p></footer>
 
     <script>
+        // Chaque catégorie a son texte unique
         const projectDetails = {
             'serveur': {
-                title: "Mise en place d'un serveur",
-                why: "Centraliser les ressources et sécuriser l'accès aux données locales.",
-                how: "Ubuntu Server & configuration SSH.",
-                scrollText: "Détails techniques : Installation d'Ubuntu Server 22.04 LTS. Configuration des accès SSH par clés privées pour une sécurité maximale. Mise en place d'un pare-feu UFW restrictif. Ce projet a nécessité une attention particulière sur la gestion des droits utilisateurs et la stabilité des services réseau."
+                title: "Mise en place d'un serveur Ubuntu",
+                why: "Centraliser les données et héberger des services web internes.",
+                how: "Utilisation d'Ubuntu Server 22.04, installation de Docker et sécurisation SSH.",
+                longText: "Détails techniques : Ce projet a nécessité la configuration d'un pare-feu UFW restrictif. J'ai mis en place des scripts de sauvegarde automatique cron. L'accès est restreint via des clés SSH RSA 4096 bits. (Test scroll : Cette section est faite pour être longue afin de tester le défilement fluide dans la fenêtre large comme demandé)."
             },
             'portfolio': {
                 title: "Portfolio Personnel",
-                why: "Créer une vitrine professionnelle pour mes stages.",
-                how: "Utilisation de HTML5, CSS3 avec variables pour le thème.",
-                scrollText: "Détails techniques : Développement en architecture modulaire. Intégration d'un système de changement de thème (Sunset/Dark) via le localStorage de l'utilisateur. Utilisation de CSS Grid et Flexbox pour assurer une compatibilité totale sur mobile et tablette."
+                why: "Présenter mon parcours de manière interactive aux recruteurs.",
+                how: "Architecture HTML/CSS avec JavaScript pour la gestion des thèmes dynamiques.",
+                longText: "Détails techniques : Utilisation de variables CSS (:root) pour basculer entre le mode Sunset et Dark. La structure est 100% responsive avec Flexbox et Grid. Le stockage local (localStorage) permet de retenir le choix du visiteur."
             },
             'passbolt': {
-                title: "Mise en place de Passbolt",
-                why: "Permettre une gestion sécurisée des mots de passe.",
-                how: "Installation sur Debian avec Docker et GPG.",
-                scrollText: "Détails techniques : Déploiement via Docker-compose pour faciliter les mises à jour. Configuration de l'agent GPG pour le chiffrement de bout en bout. Intégration d'un serveur SMTP pour les notifications de sécurité et la validation des invitations."
+                title: "Passbolt - Gestionnaire de mots de passe",
+                why: "Sécuriser le partage des identifiants entre collaborateurs.",
+                how: "Déploiement sur serveur Debian, configuration GPG et SMTP.",
+                longText: "Détails techniques : Installation via Docker pour une meilleure isolation. Configuration de l'extension navigateur et de l'agent GPG. Ce projet m'a permis de comprendre les enjeux du chiffrement asymétrique en entreprise."
             }
         };
 
         function openModal(id) {
-            const project = projectDetails[id];
-            document.getElementById('modal-title').innerText = project.title;
-            document.getElementById('modal-why').innerText = project.why;
-            document.getElementById('modal-how').innerText = project.how;
-            document.getElementById('modal-scroll-content').innerText = project.scrollText;
+            const data = projectDetails[id];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-why').innerText = data.why;
+            document.getElementById('modal-how').innerText = data.how;
+            document.getElementById('modal-long-text').innerText = data.longText;
             
             document.getElementById('modal-overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden'; // Bloque le scroll du site
         }
 
         function closeModal() {
             document.getElementById('modal-overlay').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Rend le scroll au site
         }
 
         function toggleTheme() {
@@ -143,7 +153,9 @@
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
-        window.onclick = function(e) { if (e.target == document.getElementById('modal-overlay')) closeModal(); }
+        window.onclick = function(e) { 
+            if (e.target == document.getElementById('modal-overlay')) closeModal(); 
+        }
     </script>
 </body>
 </html>
