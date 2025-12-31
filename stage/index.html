@@ -49,7 +49,28 @@
                 <p>Installation et configuration du gestionnaire de mots de passe.</p>
                 <a href="javascript:void(0)" class="view-more" onclick="openModal('passbolt')">Voir plus →</a>
             </article>
-            </div>
+
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Migration Ubuntu</h3>
+                <p>Changement du serveur pour migration sous Proxmox.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
+
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Mise en place d'Ansible</h3>
+                <p>Automatisation de la configuration des serveurs.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
+
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Scripts d'automatisation</h3>
+                <p>Développement de scripts Bash et Python.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
+        </div>
     </main>
 
     <div id="modal-overlay" class="modal-overlay">
@@ -60,16 +81,16 @@
             <div class="modal-body">
                 <div class="modal-section">
                     <h4 class="pink-accent">Pourquoi ?</h4>
-                    <p id="modal-why">Description du besoin.</p>
+                    <p id="modal-why">Description du besoin du projet.</p>
                 </div>
                 <div class="modal-section">
                     <h4 class="pink-accent">Comment ?</h4>
-                    <p id="modal-how">Méthodologie employée.</p>
+                    <p id="modal-how">Explication de la mise en œuvre.</p>
                 </div>
                 <div class="modal-section">
                     <h4 class="pink-accent">Aperçu</h4>
                     <div class="img-placeholder">
-                        <span>🖼️ Image du projet</span>
+                        <span>🖼️ Image du projet à venir</span>
                     </div>
                 </div>
             </div>
@@ -80,13 +101,17 @@
         function openModal(id) {
             const modal = document.getElementById('modal-overlay');
             const title = document.getElementById('modal-title');
+            const why = document.getElementById('modal-why');
             
             if(id === 'serveur') {
                 title.innerText = "Mise en place d'un serveur";
+                why.innerText = "Installation et configuration d'un serveur sous Ubuntu pour héberger des services.";
             } else if(id === 'gestion') {
                 title.innerText = "Gestion de projets";
+                why.innerText = "Organisation et planification des tâches de l'Atelier Professionnel.";
             } else if(id === 'passbolt') {
                 title.innerText = "Mise en place de Passbolt";
+                why.innerText = "Installation sécurisée du gestionnaire de mots de passe pour l'équipe.";
             }
             
             modal.style.display = 'flex';
@@ -97,14 +122,12 @@
         }
 
         window.onclick = function(event) {
-            const modal = document.getElementById('modal-overlay');
-            if (event.target == modal) closeModal();
+            if (event.target == document.getElementById('modal-overlay')) closeModal();
         }
 
         function toggleTheme() {
             const themeLink = document.getElementById('theme-link');
             const currentTheme = themeLink.getAttribute('href');
-            
             if (currentTheme === 'style9_darkg.css') {
                 themeLink.setAttribute('href', 'style15.css');
             } else {
