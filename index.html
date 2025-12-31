@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
+    <title>1Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link id="theme-style" rel="stylesheet" href="css/style15.css">
+    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
-                document.getElementById('theme-style').setAttribute('href', 'css/style9_darkg.css');
+                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
             }
         })();
     </script>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="./diplomes/">Diplômes</a></li>
-                <li><a href="./formation/">Formation</a></li>
-                <li><a href="./stage/">Stages</a></li>
-                <li><a href="./cv/">CV</a></li>
-                <li><a href="./veilletechno/">Veille</a></li>
-                <li><a href="./presentationperso/">À propos</a></li>
-                <li><a href="./contact/" class="btn-contact">Contact</a></li>
-                
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../diplomes/">Diplômes</a></li>
+                <li><a href="../formation/">Formation</a></li>
+                <li><a href="." class="active">Stages</a></li>
+                <li><a href="../cv/">CV</a></li>
+                <li><a href="../veilletechno/">Veille</a></li>
+                <li><a href="../presentationperso/">À propos</a></li>
+                <li><a href="../contact/" class="btn-contact">Contact</a></li>
                 <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
@@ -39,78 +37,100 @@
 
     <main>
         <section class="hero-small">
-            <h1>Bienvenue</h1>
-            <p>Étudiant en BTS SIO option SISR & Passionné par l’infrastructure informatique.</p>
+            <h1>Expériences Professionnelles</h1>
+            <p>Immersion en entreprise et mise en pratique.</p>
         </section>
 
         <div class="container">
-            <section id="intro">
-                <h2 class="section-title">À propos de ce site</h2>
-                <p>Bienvenue sur mon portfolio. Ce site a été codé manuellement (HTML/CSS) pour présenter mon profil orienté systèmes et réseaux.</p>
-            </section>
+            <div class="timeline-item">
+                <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
+                <h3>NEOTEAMS.IO Cambrai</h3>
+                <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                </div>
 
-            <br><br>
-
-            <section id="projects">
-                <h2 class="section-title">Mes Projets Récents</h2>
+                <h2 class="section-title" style="margin-top: 4rem;">Mes Projets Récents</h2>
+                
                 <div class="grid-container">
                     <article class="card">
                         <span class="tag finished">Terminé ✅</span>
                         <h3>Mise en place d'un serveur</h3>
-                        <p>Installation et configuration d’un serveur sous Ubuntu.</p>
+                        <p>Installation et configuration d'un serveur Ubuntu.</p>
+                        <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
                     </article>
 
                     <article class="card">
                         <span class="tag in-progress">En cours 🛠️</span>
                         <h3>Portfolio Personnel</h3>
                         <p>Le site sur lequel vous naviguez actuellement.</p>
+                        <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
                     </article>
 
                     <article class="card">
                         <span class="tag finished">Terminé ✅</span>
-                        <h3>Mise en place de Passbolt</h3>
-                        <p>Installation et configuration du service Passbolt.</p>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag future">À venir ❌</span>
-                        <h3>Migration du serveur Ubuntu</h3>
-                        <p>Changement du serveur pour le migrer sous Proxmox.</p>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag future">À venir ❌</span>
-                        <h3>Mise en place d’Ansible</h3>
-                        <p>Installation et configuration du service Ansible.</p>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag future">À venir ❌</span>
-                        <h3>Mise en place de scripts</h3>
-                        <p>Développement et déploiement de scripts d’automatisation.</p>
+                        <h3>Passbolt</h3>
+                        <p>Installation du gestionnaire de mots de passe.</p>
+                        <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
                     </article>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 - Loic Kebabla. Tous droits réservés.</p>
-    </footer>
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Titre du Projet</h2>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <h4>Pourquoi ?</h4>
+                <p id="modal-why"></p>
+                <h4>Comment ?</h4>
+                <p id="modal-how"></p>
+                <h4>Aperçu</h4>
+                <div class="modal-img-container">
+                    <p id="modal-preview-text"></p>
+                    <div class="img-placeholder">🖼️ Capture d'écran</div>
+                    <div class="scroll-test">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
+        const projectDetails = {
+            'serveur': { title: "Mise en place d'un serveur", why: "Centraliser les ressources.", how: "Ubuntu Server & SSH.", preview: "Terminal actif." },
+            'portfolio': { title: "Portfolio Personnel", why: "Vitrine pro.", how: "HTML/CSS/JS.", preview: "Design responsive." },
+            'passbolt': { title: "Passbolt", why: "Sécurité.", how: "Docker & GPG.", preview: "Gestionnaire." }
+        };
+
+        function openModal(id) {
+            const project = projectDetails[id];
+            document.getElementById('modal-title').innerText = project.title;
+            document.getElementById('modal-why').innerText = project.why;
+            document.getElementById('modal-how').innerText = project.how;
+            document.getElementById('modal-preview-text').innerText = project.preview;
+            document.getElementById('modal-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         function toggleTheme() {
             const themeLink = document.getElementById('theme-style');
-            const currentTheme = themeLink.getAttribute('href');
-
-            if (currentTheme.includes('style15.css')) {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeLink.setAttribute('href', 'css/style15.css');
-                localStorage.setItem('theme', 'light');
-            }
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
+
+        window.onclick = function(e) { if (e.target == document.getElementById('modal-overlay')) closeModal(); }
     </script>
 </body>
 </html>
