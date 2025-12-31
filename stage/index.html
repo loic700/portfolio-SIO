@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Portfolio - Loic Kebabla</title>
+    <title>Portfolio - Loic Kebabla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
-        // Chargement du thème préféré avant l'affichage
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -41,15 +40,12 @@
         <div class="timeline-item">
             <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
             <h3>NEOTEAMS.IO Cambrai</h3>
-            <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
             
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <hr class="separator">
-
-            <h2 class="section-title">Mes Projets Récents</h2>
+            <h2 class="section-title" style="margin-top: 4rem;">Mes Projets Récents</h2>
             
             <div class="grid-container">
                 <article class="card">
@@ -83,17 +79,17 @@
                 <button class="close-btn" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body">
-                <div class="content-section">
+                <div class="modal-section">
                     <h4>Pourquoi ?</h4>
                     <p id="modal-why"></p>
                 </div>
-                <div class="content-section">
+                <div class="modal-section">
                     <h4>Comment ?</h4>
                     <p id="modal-how"></p>
                 </div>
-                <div class="content-section">
+                <div class="modal-section">
                     <h4>Aperçu technique</h4>
-                    <div class="scroll-box">
+                    <div class="scroll-area">
                         <p id="modal-details"></p>
                         <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
                     </div>
@@ -103,25 +99,26 @@
     </div>
 
     <script>
-        // Données uniques par projet
+        // --- BASE DE DONNÉES DES PROJETS ---
+        // Pour ajouter un projet, rajoute une ligne ici
         const projectData = {
             'serveur': {
                 title: "Mise en place d'un serveur Ubuntu",
-                why: "Centraliser les ressources et sécuriser l'accès aux données.",
+                why: "Centraliser les ressources et sécuriser l'accès aux données locales.",
                 how: "Configuration SSH, installation UFW et services Web.",
-                details: "Installation d'Ubuntu Server 22.04 LTS. Configuration des clés privées pour le SSH. Mise en place d'une politique de pare-feu stricte pour protéger l'infrastructure."
+                details: "Installation d'Ubuntu Server 22.04 LTS. Configuration des clés privées pour le SSH. Mise en place d'une politique de pare-feu stricte. (Test Scroll : Ce texte est fait pour être long afin de vérifier que la barre de défilement s'affiche bien dans la grande fenêtre)."
             },
             'portfolio': {
                 title: "Portfolio Personnel",
-                why: "Créer une vitrine pro pour mes futurs stages.",
+                why: "Créer une vitrine professionnelle moderne.",
                 how: "HTML/CSS avec gestion dynamique du mode sombre.",
-                details: "Architecture modulaire utilisant des variables CSS. Le site s'adapte automatiquement à la préférence système de l'utilisateur ou à son choix manuel via localStorage."
+                details: "Utilisation de variables CSS pour le changement de thème. Structure responsive et animations fluides."
             },
             'passbolt': {
                 title: "Mise en place de Passbolt",
-                why: "Gérer les identifiants de manière collaborative et sécurisée.",
+                why: "Gérer les identifiants de manière sécurisée en entreprise.",
                 how: "Déploiement sur Debian avec Docker-compose.",
-                details: "Configuration de l'agent GPG pour le chiffrement des données. Mise en place de certificats SSL pour garantir la confidentialité des échanges."
+                details: "Configuration GPG pour le chiffrement. Mise en place de certificats SSL."
             }
         };
 
