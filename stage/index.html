@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Portfolio - Loic Kebabla</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
-    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+    <link id="theme-style" rel="stylesheet" href="style15.css">
 
     <script>
+        // Initialisation du thème sauvegardé avant le rendu
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
-                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
+                document.getElementById('theme-style').setAttribute('href', 'style9_darkg.css');
             }
         })();
     </script>
@@ -24,9 +25,12 @@
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
                 <li><a href="../">Accueil</a></li>
+                <li><a href="../diplomes/">Diplômes</a></li>
+                <li><a href="../formation/">Formation</a></li>
                 <li><a href="." class="active">Stages</a></li>
+                <li><a href="../cv/">CV</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -50,22 +54,22 @@
             <div class="grid-container">
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Serveur Ubuntu</h3>
-                    <p>Installation et configuration complète.</p>
+                    <h3>Mise en place d'un serveur</h3>
+                    <p>Installation et configuration complète sous Ubuntu.</p>
                     <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag in-progress">En cours 🛠️</span>
                     <h3>Portfolio Personnel</h3>
-                    <p>Le site sur lequel vous naviguez.</p>
+                    <p>Développement de ce site interactif.</p>
                     <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Passbolt</h3>
-                    <p>Gestionnaire de mots de passe sécurisé.</p>
+                    <h3>Mise en place de Passbolt</h3>
+                    <p>Sécurisation des mots de passe en entreprise.</p>
                     <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
                 </article>
             </div>
@@ -88,7 +92,7 @@
                     <p id="modal-how"></p>
                 </div>
                 <div class="modal-section">
-                    <h4>Aperçu technique</h4>
+                    <h4>Détails techniques & Aperçu</h4>
                     <div class="scroll-area">
                         <p id="modal-details"></p>
                         <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
@@ -98,36 +102,37 @@
         </div>
     </div>
 
+    <footer><p>© 2025 - Loic Kebabla</p></footer>
+
     <script>
-        // --- BASE DE DONNÉES DES PROJETS ---
-        // Pour ajouter un projet, rajoute une ligne ici
-        const projectData = {
+        // Données uniques pour chaque catégorie
+        const projectDetails = {
             'serveur': {
-                title: "Mise en place d'un serveur Ubuntu",
-                why: "Centraliser les ressources et sécuriser l'accès aux données locales.",
-                how: "Configuration SSH, installation UFW et services Web.",
-                details: "Installation d'Ubuntu Server 22.04 LTS. Configuration des clés privées pour le SSH. Mise en place d'une politique de pare-feu stricte. (Test Scroll : Ce texte est fait pour être long afin de vérifier que la barre de défilement s'affiche bien dans la grande fenêtre)."
+                title: "Mise en place d'un serveur",
+                why: "Centraliser les données et sécuriser l'accès aux ressources locales.",
+                how: "Installation d'Ubuntu Server 22.04 LTS et configuration SSH.",
+                details: "Détails techniques : Configuration du pare-feu UFW. Installation de services Docker pour l'isolation des applications. (Texte long pour tester le scroll : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.)"
             },
             'portfolio': {
                 title: "Portfolio Personnel",
-                why: "Créer une vitrine professionnelle moderne.",
-                how: "HTML/CSS avec gestion dynamique du mode sombre.",
-                details: "Utilisation de variables CSS pour le changement de thème. Structure responsive et animations fluides."
+                why: "Créer une vitrine professionnelle moderne pour mes stages.",
+                how: "HTML5, CSS3 avec variables système et JavaScript vanille.",
+                details: "Détails techniques : Utilisation de Flexbox et CSS Grid. Système de thèmes stocké en local pour persistance après rafraîchissement. Design responsive optimisé pour tous les écrans."
             },
             'passbolt': {
                 title: "Mise en place de Passbolt",
-                why: "Gérer les identifiants de manière sécurisée en entreprise.",
-                how: "Déploiement sur Debian avec Docker-compose.",
-                details: "Configuration GPG pour le chiffrement. Mise en place de certificats SSL."
+                why: "Assurer la confidentialité des identifiants partagés.",
+                how: "Déploiement sur Debian avec Docker et configuration GPG.",
+                details: "Détails techniques : Mise en place du chiffrement asymétrique. Configuration du serveur SMTP pour les alertes de sécurité."
             }
         };
 
         function openModal(id) {
-            const p = projectData[id];
-            document.getElementById('modal-title').innerText = p.title;
-            document.getElementById('modal-why').innerText = p.why;
-            document.getElementById('modal-how').innerText = p.how;
-            document.getElementById('modal-details').innerText = p.details;
+            const data = projectDetails[id];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-why').innerText = data.why;
+            document.getElementById('modal-how').innerText = data.how;
+            document.getElementById('modal-details').innerText = data.details;
             
             document.getElementById('modal-overlay').style.display = 'flex';
             document.body.style.overflow = 'hidden'; 
@@ -139,9 +144,9 @@
         }
 
         function toggleTheme() {
-            const theme = document.getElementById('theme-style');
-            const isSunset = theme.getAttribute('href').includes('style15.css');
-            theme.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            themeLink.setAttribute('href', isSunset ? 'style9_darkg.css' : 'style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
