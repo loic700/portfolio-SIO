@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>1Portfolio - Loic Kebabla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
-        // Initialisation immédiate du thème sauvegardé
+        // Chargement du thème préféré avant l'affichage
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -24,12 +25,7 @@
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
                 <li><a href="../">Accueil</a></li>
-                <li><a href="../diplomes/">Diplômes</a></li>
-                <li><a href="../formation/">Formation</a></li>
                 <li><a href="." class="active">Stages</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../veilletechno/">Veille</a></li>
-                <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
                 <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
             </ul>
@@ -46,11 +42,12 @@
             <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
             <h3>NEOTEAMS.IO Cambrai</h3>
             <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+            
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <hr style="margin: 4rem 0; opacity: 0.1;">
+            <hr class="separator">
 
             <h2 class="section-title">Mes Projets Récents</h2>
             
@@ -58,14 +55,14 @@
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Serveur Ubuntu</h3>
-                    <p>Installation et configuration d’un serveur.</p>
+                    <p>Installation et configuration complète.</p>
                     <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag in-progress">En cours 🛠️</span>
-                    <h3>Portfolio</h3>
-                    <p>Création du site personnel dynamique.</p>
+                    <h3>Portfolio Personnel</h3>
+                    <p>Le site sur lequel vous naviguez.</p>
                     <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
                 </article>
 
@@ -86,18 +83,18 @@
                 <button class="close-btn" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section">
+                <div class="content-section">
                     <h4>Pourquoi ?</h4>
                     <p id="modal-why"></p>
                 </div>
-                <div class="modal-section">
+                <div class="content-section">
                     <h4>Comment ?</h4>
                     <p id="modal-how"></p>
                 </div>
-                <div class="modal-section">
-                    <h4>Aperçu technique & Détails</h4>
-                    <div class="scroll-container">
-                        <p id="modal-long-text"></p>
+                <div class="content-section">
+                    <h4>Aperçu technique</h4>
+                    <div class="scroll-box">
+                        <p id="modal-details"></p>
                         <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
                     </div>
                 </div>
@@ -105,51 +102,49 @@
         </div>
     </div>
 
-    <footer><p>© 2025 - Loic Kebabla</p></footer>
-
     <script>
-        // Chaque catégorie a son texte unique
-        const projectDetails = {
+        // Données uniques par projet
+        const projectData = {
             'serveur': {
                 title: "Mise en place d'un serveur Ubuntu",
-                why: "Centraliser les données et héberger des services web internes.",
-                how: "Utilisation d'Ubuntu Server 22.04, installation de Docker et sécurisation SSH.",
-                longText: "Détails techniques : Ce projet a nécessité la configuration d'un pare-feu UFW restrictif. J'ai mis en place des scripts de sauvegarde automatique cron. L'accès est restreint via des clés SSH RSA 4096 bits. (Test scroll : Cette section est faite pour être longue afin de tester le défilement fluide dans la fenêtre large comme demandé)."
+                why: "Centraliser les ressources et sécuriser l'accès aux données.",
+                how: "Configuration SSH, installation UFW et services Web.",
+                details: "Installation d'Ubuntu Server 22.04 LTS. Configuration des clés privées pour le SSH. Mise en place d'une politique de pare-feu stricte pour protéger l'infrastructure."
             },
             'portfolio': {
                 title: "Portfolio Personnel",
-                why: "Présenter mon parcours de manière interactive aux recruteurs.",
-                how: "Architecture HTML/CSS avec JavaScript pour la gestion des thèmes dynamiques.",
-                longText: "Détails techniques : Utilisation de variables CSS (:root) pour basculer entre le mode Sunset et Dark. La structure est 100% responsive avec Flexbox et Grid. Le stockage local (localStorage) permet de retenir le choix du visiteur."
+                why: "Créer une vitrine pro pour mes futurs stages.",
+                how: "HTML/CSS avec gestion dynamique du mode sombre.",
+                details: "Architecture modulaire utilisant des variables CSS. Le site s'adapte automatiquement à la préférence système de l'utilisateur ou à son choix manuel via localStorage."
             },
             'passbolt': {
-                title: "Passbolt - Gestionnaire de mots de passe",
-                why: "Sécuriser le partage des identifiants entre collaborateurs.",
-                how: "Déploiement sur serveur Debian, configuration GPG et SMTP.",
-                longText: "Détails techniques : Installation via Docker pour une meilleure isolation. Configuration de l'extension navigateur et de l'agent GPG. Ce projet m'a permis de comprendre les enjeux du chiffrement asymétrique en entreprise."
+                title: "Mise en place de Passbolt",
+                why: "Gérer les identifiants de manière collaborative et sécurisée.",
+                how: "Déploiement sur Debian avec Docker-compose.",
+                details: "Configuration de l'agent GPG pour le chiffrement des données. Mise en place de certificats SSL pour garantir la confidentialité des échanges."
             }
         };
 
         function openModal(id) {
-            const data = projectDetails[id];
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-why').innerText = data.why;
-            document.getElementById('modal-how').innerText = data.how;
-            document.getElementById('modal-long-text').innerText = data.longText;
+            const p = projectData[id];
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-why').innerText = p.why;
+            document.getElementById('modal-how').innerText = p.how;
+            document.getElementById('modal-details').innerText = p.details;
             
             document.getElementById('modal-overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Bloque le scroll du site
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
             document.getElementById('modal-overlay').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Rend le scroll au site
+            document.body.style.overflow = 'auto';
         }
 
         function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            const theme = document.getElementById('theme-style');
+            const isSunset = theme.getAttribute('href').includes('style15.css');
+            theme.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
