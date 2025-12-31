@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', 'css/style9_darkg.css');
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -14,7 +23,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
-                <li><a href="." class="active">Accueil</a></li>
+                <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="./diplomes/">Diplômes</a></li>
                 <li><a href="./formation/">Formation</a></li>
                 <li><a href="./stage/">Stages</a></li>
@@ -45,7 +54,6 @@
             <section id="projects">
                 <h2 class="section-title">Mes Projets Récents</h2>
                 <div class="grid-container">
-                    
                     <article class="card">
                         <span class="tag finished">Terminé ✅</span>
                         <h3>Mise en place d'un serveur</h3>
@@ -95,22 +103,12 @@
             const themeLink = document.getElementById('theme-style');
             const currentTheme = themeLink.getAttribute('href');
 
-            // Si on est sur style15 (Sunset), on passe à style9_darkg (Dark)
             if (currentTheme.includes('style15.css')) {
                 themeLink.setAttribute('href', 'css/style9_darkg.css');
-                localStorage.setItem('theme', 'dark'); // On sauvegarde le choix
+                localStorage.setItem('theme', 'dark');
             } else {
                 themeLink.setAttribute('href', 'css/style15.css');
-                localStorage.setItem('theme', 'light'); // On sauvegarde le choix
-            }
-        }
-
-        // Au chargement de la page, on vérifie si l'utilisateur avait choisi un thème
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeLink = document.getElementById('theme-style');
-            if (savedTheme === 'dark') {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
+                localStorage.setItem('theme', 'light');
             }
         }
     </script>
