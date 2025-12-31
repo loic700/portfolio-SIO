@@ -3,137 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
-
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
-            }
-        })();
-    </script>
+    <title>Portfolio - Mes Projets</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <script>
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
-            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
-        }
-
-        function toggleModal(modalId, show) {
-            const modal = document.getElementById(modalId);
-            if (show) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+<body class="dark-mode">
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">L.K</a>
+            <div class="logo">PORTFOLIO</div>
             <ul class="nav-links">
-                <li><a href="../">Accueil</a></li>
-                <li><a href="../diplomes/">Diplômes</a></li>
-                <li><a href="../formation/">Formation</a></li>
-                <li><a href="." class="active">Stages</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../veilletechno/">Veille</a></li>
-                <li><a href="../presentationperso/">À propos</a></li>
-                <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#" class="btn-contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
-        <section class="hero-small">
-            <h1>Expériences Professionnelles</h1>
-            <p>Immersion en entreprise et mise en pratique.</p>
-        </section>
+    <main class="container">
+        <h2 class="section-title">Mes Projets Récents</h2>
 
-        <div class="container">
-            <div class="timeline-item">
-                <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
-                <h3>NEOTEAMS.IO cambrai</h3>
-                <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-                <p>Installation et mise en service de services comme Nextcloud, configuration SSL et maintenance matérielle.</p>
-                
-                <div class="map-responsive">
-                    <iframe src="https://developers.google.com/maps/documentation/javascript/add-google-map-wc-tut?hl=fr4" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+        <div class="grid-container">
+            <article class="card">
+                <span class="tag finished">Terminé ✅</span>
+                <h3>Mise en place d'un serveur</h3>
+                <p>Installation et configuration d'un serveur sous Ubuntu.</p>
+                <a href="javascript:void(0)" class="view-more" onclick="openModal('serveur')">Voir plus →</a>
+            </article>
 
-                <section id="projects">
-                    <h2 class="section-title">Mes Projets Récents</h2>
-                    <div class="grid-container">
-                        <article class="card">
-                            <span class="tag finished">Terminé ✅</span>
-                            <h3>Voir le détail du Stage 1</h3>
-                            <p>Rapport de stage, missions et compétences validées durant cette immersion.</p>
-                            <button class="btn-more-info" onclick="toggleModal('modalStage1', true)">Voir plus ➔</button>
-                        </article>
+            <article class="card">
+                <span class="tag in-progress">En cours 🛠️</span>
+                <h3>Gestion de projets</h3>
+                <p>Organisation et planification des tâches de l'Atelier Professionnel.</p>
+                <a href="javascript:void(0)" class="view-more" onclick="openModal('gestion')">Voir plus →</a>
+            </article>
 
-                        <article class="card">
-                            <span class="tag finished">Terminé ✅</span>
-                            <h3>Mise en place d'un serveur</h3>
-                            <p>Installation et configuration d’un serveur sous Ubuntu.</p>
-                            <button class="btn-more-info" onclick="toggleModal('modalServeur', true)">Voir plus ➔</button>
-                        </article>
+            <article class="card">
+                <span class="tag finished">Terminé ✅</span>
+                <h3>Mise en place de Passbolt</h3>
+                <p>Installation et configuration du gestionnaire de mots de passe.</p>
+                <a href="javascript:void(0)" class="view-more" onclick="openModal('passbolt')">Voir plus →</a>
+            </article>
 
-                        <article class="card">
-                            <span class="tag in-progress">En cours 🛠️</span>
-                            <h3>Portfolio Personnel</h3>
-                            <p>Le site sur lequel vous naviguez actuellement.</p>
-                            <button class="btn-more-info">Voir plus ➔</button>
-                        </article>
-                    </div>
-                </section>
-            </div>
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Migration Ubuntu</h3>
+                <p>Changement du serveur pour migration sous Proxmox.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
 
-            <div class="card" style="margin-top: 3rem; border-left: 5px solid var(--secondary);">
-                <h3>🚀 Prochain Stage</h3>
-                <p>Prévu du 17 Novembre au 19 Décembre 2025.</p>
-                <p>Objectif : Validation de la 2nde année de BTS SIO.</p>
-            </div>
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Mise en place d'Ansible</h3>
+                <p>Automatisation de la configuration des serveurs.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
+
+            <article class="card">
+                <span class="tag future">À venir ❌</span>
+                <h3>Scripts d'automatisation</h3>
+                <p>Développement de scripts Bash et Python.</p>
+                <a href="javascript:void(0)" class="view-more">Voir plus →</a>
+            </article>
         </div>
     </main>
 
-    <div id="modalStage1" class="modal-overlay" onclick="if(event.target == this) toggleModal('modalStage1', false)">
+    <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Gestion de projets - Stage 1</h2>
-                <button class="modal-close" onclick="toggleModal('modalStage1', false)">×</button>
-            </div>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modal-title">Gestion de projets</h2>
+            
             <div class="modal-body">
-                <div class="modal-q">
-                    <h3>Pourquoi ?</h3>
+                <div class="modal-section">
+                    <h4 class="pink-accent">Pourquoi ?</h4>
                     <p>La gestion de projets nous aide à planifier et s'organiser pour optimiser les tâches à réaliser.</p>
                 </div>
-                <div class="modal-q">
-                    <h3>Comment ?</h3>
-                    <p>Dans le cas de notre Atelier Professionnel, nos enseignants ont mis en place une solution de gestion de projets au sein du Moodle pour suivre nos réalisations efficacement.</p>
+                <div class="modal-section">
+                    <h4 class="pink-accent">Comment ?</h4>
+                    <p>Dans le cas de notre Atelier Professionnel, nos enseignants ont mis en place une solution au sein du Moodle...</p>
                 </div>
-                <div class="modal-q">
-                    <h3>Aperçu de la gestion de projets</h3>
-                    <p>Les tâches sont réparties en 3 catégories : À faire, En cours et Fini.</p>
-                    <div class="modal-img-container">
-                        <img src="../images/kanban-bfc.png" alt="Tableau Kanban Shared Board BFC-SISR" style="width:100%; border-radius:10px; border: 1px solid rgba(0,0,0,0.1);">
+                <div class="modal-section">
+                    <h4 class="pink-accent">Aperçu de la gestion de projets</h4>
+                    <p>Les tâches sont réparties en 3 catégories (À faire, En cours, Terminé).</p>
+                    <div class="img-placeholder">
+                        <img src="apercu.png" alt="Aperçu" style="display:none;">
+                        <span>🖼️ Aperçu de la gestion</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 - Loic Kebabla</p>
-    </footer>
+    <script>
+        function openModal(id) {
+            document.getElementById('modal-overlay').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-overlay')) closeModal();
+        }
+    </script>
 </body>
 </html>
