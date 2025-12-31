@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Loic Kebabla - Portfolio</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
@@ -75,6 +75,14 @@
                     <p>Sécurisation des mots de passe en entreprise.</p>
                     <button class="btn-more" onclick="enableModal('passbolt')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Mise en place d'un serveur</h3>
+                    <p>Installation et configuration complète sous Ubuntu.</p>
+                    <button class="btn-more" onclick="enableModal('pasidee')">En savoir plus →</button>
+                </article>
+
             </div>
         </div>
 
@@ -131,6 +139,24 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="pasidee">
+        <div class="modal-content">
+            <div class="header">
+                <h3>Mise en place d'un serveur</h3>
+                <span onclick="disableModal('pasidee')" class="close_modal">×</span>
+            </div>
+            <div class="body">
+                <h4>Pourquoi ?</h4>
+                <p>Centraliser les ressources et sécuriser l'accès aux données locales.</p>
+                <h4>Comment ?</h4>
+                <p>Installation d'Ubuntu Server 22.04 LTS et configuration SSH.</p>
+                <h4>Détails & Aperçu technique</h4>
+                <p>Mise en place du pare-feu UFW. Ce projet a nécessité une attention particulière sur la gestion des droits.</p>
+            </div>
+        </div>
+    </div>
+
 
     <footer><p>© 2025 - Loic Kebabla</p></footer>
 
