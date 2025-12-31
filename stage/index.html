@@ -18,15 +18,27 @@
     </script>
 </head>
 <body>
-<script>
+    <script>
         function toggleTheme() {
             const themeLink = document.getElementById('theme-style');
             const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            
             themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
+
+        // Script pour la fenêtre surgissante (Modale)
+        function toggleModal(modalId, show) {
+            const modal = document.getElementById(modalId);
+            if (show) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
@@ -39,7 +51,6 @@
                 <li><a href="../veilletechno/">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                
                 <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
@@ -60,17 +71,17 @@
                 <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
                 
                 <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <a href="page-detail-stage1.html" class="card stage-link-card">
-                    <span class="tag finished">Terminé ✅</span>
+                <div class="card internship-card">
+                    <div class="tag finished">Terminé ✅</div>
                     <h3>Voir le détail du Stage 1</h3>
                     <p>Rapport de stage, missions détaillées et compétences validées durant cette immersion.</p>
-                    <div class="voir-plus-btn">
-                        <span>En savoir plus</span> <span class="arrow">➔</span>
-                    </div>
-                </a>
+                    <button class="btn-modal-trigger" onclick="toggleModal('modalStage1', true)">
+                        En savoir plus ➔
+                    </button>
+                </div>
             </div>
 
             <div class="card" style="margin-top: 3rem; border-left: 5px solid var(--secondary);">
@@ -82,8 +93,37 @@
         </div>
     </main>
 
+    <div id="modalStage1" class="modal-overlay" onclick="if(event.target == this) toggleModal('modalStage1', false)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Gestion de projets</h2>
+                <button class="modal-close" onclick="toggleModal('modalStage1', false)">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Pourquoi ?</h3>
+                    <p>La gestion de projets nous aide à planifier et s'organiser pour optimiser les tâches à réaliser.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Comment ?</h3>
+                    <p>Dans le cadre de mon stage chez Neoteams, j'ai utilisé des outils de suivi pour organiser le déploiement des serveurs et les interventions techniques.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Aperçu de la gestion de projets</h3>
+                    <p>Les tâches sont réparties en 3 catégories (À faire, En cours et Terminé).</p>
+                    <div class="modal-img-container">
+                        <img src="../images/kanban-stage.png" alt="Aperçu Gestion" style="width:100%; border-radius:10px; margin-top:10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>© 2025 - Loic Kebabla</p>
     </footer>
+
 </body>
 </html>
