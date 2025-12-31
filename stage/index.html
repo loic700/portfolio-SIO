@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11Loic Kebabla - Portfolio</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
+        // Charge le thème sauvegardé avant l'affichage de la page
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -29,7 +31,7 @@
                 <li><a href="../veilletechno/">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -45,7 +47,7 @@
                 <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
                 <h3>NEOTEAMS.IO Cambrai</h3>
                 <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-                <p>Installation de services (Nextcloud), certificats SSL et maintenance matérielle.</p>
+                <p>Installation de services, configuration SSL et maintenance matérielle.</p>
                 
                 <div class="map-responsive">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
@@ -93,7 +95,7 @@
                 <h4>Aperçu du projet</h4>
                 <div class="modal-img-container">
                     <p id="modal-preview-text"></p>
-                    <div class="img-placeholder">🖼️ Capture d'écran à venir</div>
+                    <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
                 </div>
             </div>
         </div>
@@ -102,44 +104,59 @@
     <footer><p>© 2025 - Loic Kebabla</p></footer>
 
     <script>
+        // Données des projets
         const projectDetails = {
             'serveur': {
                 title: "Mise en place d'un serveur",
-                why: "Ce projet visait à centraliser les ressources et sécuriser l'accès aux données locales.",
-                how: "J'ai configuré un serveur Ubuntu avec accès SSH sécurisé et pare-feu UFW.",
-                preview: "Configuration du terminal et des services de fichiers."
+                why: "Centraliser les ressources et sécuriser l'accès aux données locales.",
+                how: "Installation d'Ubuntu Server, configuration SSH et pare-feu.",
+                preview: "Interface de ligne de commande et services actifs."
             },
             'portfolio': {
                 title: "Portfolio Personnel",
-                why: "Créer une vitrine professionnelle pour mes stages et projets de BTS SIO.",
-                how: "Utilisation de HTML5, CSS3 avec variables pour le changement de thème et JavaScript.",
-                preview: "Structure responsive et design moderne."
+                why: "Présenter mes compétences et mon parcours de manière interactive.",
+                how: "Développement en HTML/CSS moderne avec JavaScript pour le mode sombre.",
+                preview: "Structure responsive et design épuré."
             },
             'passbolt': {
                 title: "Mise en place de Passbolt",
-                why: "Permettre une gestion sécurisée et collaborative des mots de passe en entreprise.",
-                how: "Installation sur serveur Debian avec Docker et configuration des clés GPG.",
-                preview: "Interface de gestion des coffres-forts numériques."
+                why: "Gérer et partager les mots de passe de manière sécurisée.",
+                how: "Déploiement sur serveur Debian avec Docker et GPG.",
+                preview: "Coffre-fort numérique collaboratif."
             }
         };
 
-function openModal(id) {
-    const project = projectDetails[id];
-    document.getElementById('modal-title').innerText = project.title;
-    document.getElementById('modal-why').innerText = project.why;
-    document.getElementById('modal-how').innerText = project.how;
-    
-    // On met en FLEX pour que la fenêtre soit bien au milieu
-    document.getElementById('modal-overlay').style.display = 'flex';
-    // On bloque le scroll de la page derrière
-    document.body.style.overflow = 'hidden';
-}
+        // Fonction d'ouverture de la modale large
+        function openModal(id) {
+            const project = projectDetails[id];
+            document.getElementById('modal-title').innerText = project.title;
+            document.getElementById('modal-why').innerText = project.why;
+            document.getElementById('modal-how').innerText = project.how;
+            document.getElementById('modal-preview-text').innerText = project.preview;
+            
+            document.getElementById('modal-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloque le scroll derrière
+        }
 
-function closeModal() {
-    document.getElementById('modal-overlay').style.display = 'none';
-    // On remet le scroll
-    document.body.style.overflow = 'auto';
-}
+        // Fonction de fermeture
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Réactive le scroll
+        }
+
+        // Fermer en cliquant à l'extérieur
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-overlay')) closeModal();
+        }
+
+        // REPARATION DU BOUTON DE THEME
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+        }
     </script>
 </body>
 </html>

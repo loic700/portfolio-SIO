@@ -302,52 +302,30 @@ footer {
 
 
 
-/* ============================================================
-   MODALE LARGE STYLE "SOUS-PAGE" (SUNSET)
-   ============================================================ */
+/* --- MODALE LARGE & SCROLL (SUNSET) --- */
+.theme-switch {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid var(--primary);
+    color: var(--text-dark); padding: 0.5rem 1rem; border-radius: 50px;
+    cursor: pointer; transition: 0.3s;
+}
 
 .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(67, 20, 7, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(67, 20, 7, 0.5);
+    backdrop-filter: blur(10px); z-index: 9999;
+    justify-content: center; align-items: center; padding: 40px;
 }
 
 .modal-content {
-    background: white;
-    border-radius: var(--radius);
-    padding: 4rem;
-    
-    /* TAILLE AGRANDIE ICI */
-    max-width: 1200px; 
-    width: 95%;
-    
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: white; border-radius: var(--radius);
+    padding: 4rem; max-width: 1200px; width: 95%; /* ÉLARGIE ICI */
+    max-height: 90vh; overflow-y: auto; /* SCROLL ICI */
+    position: relative; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--primary);
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.close-btn {
-    background: #ffedd5;
-    border: none; color: var(--secondary);
-    font-size: 2.5rem; cursor: pointer;
-    width: 50px; height: 50px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-}
+.modal-header { display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary); margin-bottom: 2rem; }
+.close-btn { background: none; border: none; color: var(--secondary); font-size: 2.5rem; cursor: pointer; }
+.modal-body h4 { color: var(--secondary); margin-top: 1.5rem; font-weight: 700; }
+.btn-more { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+.btn-more:hover { background: var(--primary); color: white; }
