@@ -26,16 +26,19 @@
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
-        // Script pour la fenêtre surgissante (Modale)
-        function toggleModal(modalId, show) {
-            const modal = document.getElementById(modalId);
-            if (show) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
+        // Script pour la mini-page (modale)
+        function openModal(title, pourquoi, comment, image) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPourquoi').innerText = pourquoi;
+            document.getElementById('modalComment').innerText = comment;
+            document.getElementById('modalImg').src = image;
+            document.getElementById('projectModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     </script>
 
@@ -51,7 +54,7 @@
                 <li><a href="../veilletechno/">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -63,25 +66,27 @@
         </section>
 
         <div class="container">
-            
             <div class="timeline-item">
                 <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
                 <h3>NEOTEAMS.IO cambrai</h3>
                 <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-                <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
+                <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL.</p>
                 
                 <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?..." allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <div class="card internship-card">
-                    <div class="tag finished">Terminé ✅</div>
-                    <h3>Voir le détail du Stage 1</h3>
-                    <p>Rapport de stage, missions détaillées et compétences validées durant cette immersion.</p>
-                    <button class="btn-modal-trigger" onclick="toggleModal('modalStage1', true)">
-                        En savoir plus ➔
-                    </button>
-                </div>
+                <section id="projects">
+                    <h2 class="section-title">Mes Projets Récents</h2>
+                    <div class="grid-container">
+                        <article class="card">
+                            <span class="tag finished">Terminé ✅</span>
+                            <h3>Voir le détail du Stage 1</h3>
+                            <p>Rapport de stage, missions détaillées et compétences validées durant cette immersion.</p>
+                            <button class="btn-en-savoir-plus" onclick="openModal('Gestion de projets', 'La gestion de projets nous aide à planifier et s\'organiser pour optimiser les tâches à réaliser.', 'Dans le cas de notre Atelier Professionnel, nos enseignants ont mis en place une solution de gestion de projets au sein du Moodle...', '../images/kanban.png')">En savoir plus ➔</button>
+                        </article>
+                    </div>
+                </section>
             </div>
 
             <div class="card" style="margin-top: 3rem; border-left: 5px solid var(--secondary);">
@@ -89,41 +94,33 @@
                 <p>Prévu du 17 Novembre au 19 Décembre 2025.</p>
                 <p>Objectif : Validation de la 2nde année de BTS SIO.</p>
             </div>
-
         </div>
     </main>
 
-    <div id="modalStage1" class="modal-overlay" onclick="if(event.target == this) toggleModal('modalStage1', false)">
+    <div id="projectModal" class="modal-overlay" onclick="if(event.target == this) closeModal()">
         <div class="modal-container">
             <div class="modal-header">
-                <h2>Gestion de projets</h2>
-                <button class="modal-close" onclick="toggleModal('modalStage1', false)">×</button>
+                <h2 id="modalTitle">Gestion de projets</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section">
                     <h3>Pourquoi ?</h3>
-                    <p>La gestion de projets nous aide à planifier et s'organiser pour optimiser les tâches à réaliser.</p>
+                    <p id="modalPourquoi">La gestion de projets nous aide à planifier et s'organiser pour optimiser les tâches à réaliser.</p>
                 </div>
-
                 <div class="modal-section">
                     <h3>Comment ?</h3>
-                    <p>Dans le cadre de mon stage chez Neoteams, j'ai utilisé des outils de suivi pour organiser le déploiement des serveurs et les interventions techniques.</p>
+                    <p id="modalComment">Dans le cas de notre Atelier Professionnel, nos enseignants ont mis en place une solution de gestion de projets au sein du Moodle.</p>
                 </div>
-
                 <div class="modal-section">
                     <h3>Aperçu de la gestion de projets</h3>
-                    <p>Les tâches sont réparties en 3 catégories (À faire, En cours et Terminé).</p>
-                    <div class="modal-img-container">
-                        <img src="../images/kanban-stage.png" alt="Aperçu Gestion" style="width:100%; border-radius:10px; margin-top:10px;">
-                    </div>
+                    <p>Les tâches sont réparties en 3 catégories (À faire, En cours, Terminé).</p>
+                    <img id="modalImg" src="" alt="Aperçu" class="modal-preview-img">
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 - Loic Kebabla</p>
-    </footer>
-
+    <footer><p>© 2025 - Loic Kebabla</p></footer>
 </body>
 </html>
