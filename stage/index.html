@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12Portfolio - Loic Kebabla</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <link id="theme-style" rel="stylesheet" href="style15.css">
 
     <script>
@@ -25,7 +26,7 @@
                 <li><a href="../">Accueil</a></li>
                 <li><a href="." class="active">Stages</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -39,6 +40,7 @@
         <div class="timeline-item">
             <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
             <h3>NEOTEAMS.IO Cambrai</h3>
+            
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -50,48 +52,81 @@
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Mise en place d'un serveur</h3>
                     <p>Installation et configuration complète sous Ubuntu.</p>
-                    <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
+                    <button class="btn-more" onclick="enableModal('modal-serveur')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag in-progress">En cours 🛠️</span>
                     <h3>Portfolio Personnel</h3>
                     <p>Développement de ce site interactif.</p>
-                    <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
+                    <button class="btn-more" onclick="enableModal('modal-portfolio')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Mise en place de Passbolt</h3>
                     <p>Sécurisation des mots de passe en entreprise.</p>
-                    <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
+                    <button class="btn-more" onclick="enableModal('modal-passbolt')">En savoir plus →</button>
                 </article>
-                
-                </div>
+            </div>
         </div>
     </main>
 
-    <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-overlay" id="modal-serveur">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modal-title">Titre du Projet</h2>
-                <button class="close-btn" onclick="closeModal()">×</button>
+                <h2>Mise en place d'un serveur</h2>
+                <button class="close-btn" onclick="disableModal('modal-serveur')">×</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section">
-                    <h4>Pourquoi ?</h4>
-                    <p id="modal-why"></p>
+                <h4>Pourquoi ?</h4>
+                <p>Centraliser les ressources et sécuriser l'accès aux données locales pour l'ensemble du parc informatique.</p>
+                <h4>Comment ?</h4>
+                <p>Installation d'Ubuntu Server 22.04 LTS, configuration des accès SSH sécurisés et mise en place d'un pare-feu restrictif.</p>
+                <h4>Détails techniques & Aperçu</h4>
+                <div class="scroll-area">
+                    <p>Ce projet a nécessité une attention particulière sur la gestion des droits utilisateurs et la stabilité des services réseau. (Test du défilement : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.)</p>
+                    <div class="img-placeholder"></div>
                 </div>
-                <div class="modal-section">
-                    <h4>Comment ?</h4>
-                    <p id="modal-how"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-portfolio">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Portfolio Personnel</h2>
+                <button class="close-btn" onclick="disableModal('modal-portfolio')">×</button>
+            </div>
+            <div class="modal-body">
+                <h4>Pourquoi ?</h4>
+                <p>Créer une vitrine pro pour présenter mon parcours et mes compétences en BTS SIO.</p>
+                <h4>Comment ?</h4>
+                <p>Développement en HTML5 et CSS3 avec un système de thèmes dynamique géré par JavaScript.</p>
+                <h4>Détails techniques & Aperçu</h4>
+                <div class="scroll-area">
+                    <p>Utilisation de Flexbox et CSS Grid pour une structure 100% responsive. Le choix du thème est sauvegardé dans le navigateur de l'utilisateur.</p>
+                    <div class="img-placeholder"></div>
                 </div>
-                <div class="modal-section">
-                    <h4>Détails & Aperçu technique</h4>
-                    <div class="scroll-area">
-                        <p id="modal-details"></p>
-                        <div class="img-placeholder"></div>
-                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-passbolt">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mise en place de Passbolt</h2>
+                <button class="close-btn" onclick="disableModal('modal-passbolt')">×</button>
+            </div>
+            <div class="modal-body">
+                <h4>Pourquoi ?</h4>
+                <p>Assurer la confidentialité et le partage sécurisé des identifiants au sein d'une équipe technique.</p>
+                <h4>Comment ?</h4>
+                <p>Déploiement sur serveur Debian via Docker-compose et configuration de l'agent GPG.</p>
+                <h4>Détails techniques & Aperçu</h4>
+                <div class="scroll-area">
+                    <p>Configuration de certificats SSL et gestion du serveur SMTP pour les notifications de sécurité.</p>
+                    <div class="img-placeholder"></div>
                 </div>
             </div>
         </div>
@@ -100,40 +135,14 @@
     <footer><p>© 2025 - Loic Kebabla</p></footer>
 
     <script>
-        const projectDetails = {
-            'serveur': {
-                title: "Mise en place d'un serveur",
-                why: "Centraliser les ressources et sécuriser l'accès aux données locales.",
-                how: "Installation d'Ubuntu Server 22.04 LTS, configuration SSH et pare-feu.",
-                details: "Détails techniques : Mise en place d'un accès par clés privées RSA 4096 bits. Configuration du pare-feu UFW restrictif. Ce projet a nécessité un texte long pour tester le défilement (scroll) dans la fenêtre de 1450px de large."
-            },
-            'portfolio': {
-                title: "Portfolio Personnel",
-                why: "Créer une vitrine pro pour mes stages.",
-                how: "HTML5, CSS3 avec variables système et JavaScript.",
-                details: "Détails techniques : Utilisation de Flexbox et Grid. Système de thèmes jour/nuit stocké en localStorage."
-            },
-            'passbolt': {
-                title: "Mise en place de Passbolt",
-                why: "Gérer les identifiants de manière sécurisée.",
-                how: "Déploiement sur Debian avec Docker et GPG.",
-                details: "Détails techniques : Configuration de l'agent GPG pour le chiffrement."
-            }
-        };
-
-        function openModal(id) {
-            const data = projectDetails[id];
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-why').innerText = data.why;
-            document.getElementById('modal-how').innerText = data.how;
-            document.getElementById('modal-details').innerText = data.details;
-            document.getElementById('modal-overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
+        function enableModal(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloque le scroll derrière
         }
 
-        function closeModal() {
-            document.getElementById('modal-overlay').style.display = 'none';
-            document.body.style.overflow = 'auto';
+        function disableModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Réactive le scroll
         }
 
         function toggleTheme() {
@@ -143,7 +152,13 @@
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
-        window.onclick = function(e) { if (e.target == document.getElementById('modal-overlay')) closeModal(); }
+        // Fermer en cliquant à côté de la fenêtre
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
 </body>
 </html>
