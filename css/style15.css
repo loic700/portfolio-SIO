@@ -309,26 +309,37 @@ footer {
     gap: 2rem;
 }
 
-/* --- MODALE ULTRA LARGE --- */
+/* --- GRILLE : 3 PAR LIGNE --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* --- MODALE ULTRA LARGE & SCROLL (SUNSET) --- */
 .modal-overlay {
     display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(67, 20, 7, 0.45); backdrop-filter: blur(12px); z-index: 9999;
-    justify-content: center; align-items: center;
+    background: rgba(67, 20, 7, 0.5); backdrop-filter: blur(10px); z-index: 9999;
+    justify-content: center; align-items: center; padding: 20px;
 }
 
 .modal-content {
-    background: white; border-radius: var(--radius);
-    padding: 3.5rem; 
-    max-width: 1450px; /* LARGEUR MAXIMUM SUR LES CÔTÉS */
-    width: 98%;
-    max-height: 88vh; 
-    overflow-y: auto; 
+    background: white; border-radius: var(--radius); border: 2px solid white;
+    padding: 4rem; 
+    max-width: 1450px; /* Largeur maximum sur les côtés */
+    width: 98%; 
+    max-height: 85vh; 
+    overflow-y: auto; /* Scroll actif */
     position: relative; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
 }
 
-/* --- RE-FIX BOUTON THÈME --- */
+.modal-header { border-bottom: 2px solid var(--primary); padding-bottom: 1rem; margin-bottom: 2rem; }
+.close-btn { color: var(--secondary); font-size: 2.5rem; background: none; border: none; cursor: pointer; }
+
+.scroll-text-box { margin-top: 2rem; color: #522a1f; line-height: 1.8; font-size: 1.1rem; font-weight: 500; }
+
+/* RE-FIX BOUTON THEME */
 .theme-switch {
     background: rgba(255, 255, 255, 0.8); border: 2px solid var(--primary);
-    color: var(--text-dark); padding: 0.5rem 1rem; border-radius: 50px; cursor: pointer; transition: 0.3s;
+    color: var(--text-dark); padding: 0.5rem 1rem; border-radius: 50px; cursor: pointer;
 }
-.theme-switch:hover { border-color: var(--secondary); color: var(--secondary); }
