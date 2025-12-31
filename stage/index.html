@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Loic Kebabla - Portfolio</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
@@ -66,6 +66,13 @@
                         <p>Le site sur lequel vous naviguez actuellement.</p>
                         <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
                     </article>
+
+                    <article class="card">
+                        <span class="tag finished">Terminé ✅</span>
+                        <h3>Passbolt</h3>
+                        <p>Installation du gestionnaire de mots de passe.</p>
+                        <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
+                    </article>
                 </div>
             </div>
         </div>
@@ -82,13 +89,13 @@
                 <p id="modal-why"></p>
                 <h4>Comment ?</h4>
                 <p id="modal-how"></p>
-                <h4>Aperçu du projet</h4>
+                <h4>Aperçu</h4>
                 <div class="modal-img-container">
                     <p id="modal-preview-text"></p>
-                    <div class="img-placeholder">🖼️ Capture d'écran du projet</div>
-                    <p style="margin-top: 20px; color: gray;">
-                        TEST DU SCROLL : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Répétition pour forcer le scroll) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                    <div class="img-placeholder">🖼️ Capture d'écran</div>
+                    <div class="scroll-test">
+                        <p>TEST DU SCROLL ACTIF : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,18 +103,9 @@
 
     <script>
         const projectDetails = {
-            'serveur': {
-                title: "Mise en place d'un serveur",
-                why: "Centraliser les ressources et sécuriser l'accès aux données locales. Ce projet répondait à un besoin critique d'infrastructure pour l'entreprise.",
-                how: "Installation d'Ubuntu Server 22.04 LTS, configuration des accès SSH par clés privées, mise en place d'un pare-feu UFW et déploiement de services Docker.",
-                preview: "Interface de ligne de commande et monitoring système."
-            },
-            'portfolio': {
-                title: "Portfolio Personnel",
-                why: "Créer une vitrine professionnelle moderne.",
-                how: "Utilisation de HTML5/CSS3 et JS vanille.",
-                preview: "Design responsive."
-            }
+            'serveur': { title: "Mise en place d'un serveur", why: "Centraliser les ressources.", how: "Ubuntu Server & SSH.", preview: "Terminal actif." },
+            'portfolio': { title: "Portfolio Personnel", why: "Vitrine pro.", how: "HTML/CSS/JS.", preview: "Design responsive." },
+            'passbolt': { title: "Passbolt", why: "Sécurité.", how: "Docker & GPG.", preview: "Gestionnaire." }
         };
 
         function openModal(id) {
@@ -116,7 +114,6 @@
             document.getElementById('modal-why').innerText = project.why;
             document.getElementById('modal-how').innerText = project.how;
             document.getElementById('modal-preview-text').innerText = project.preview;
-            
             document.getElementById('modal-overlay').style.display = 'flex';
             document.body.style.overflow = 'hidden'; 
         }
@@ -133,9 +130,7 @@
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modal-overlay')) closeModal();
-        }
+        window.onclick = function(e) { if (e.target == document.getElementById('modal-overlay')) closeModal(); }
     </script>
 </body>
 </html>
