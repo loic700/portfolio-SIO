@@ -300,24 +300,20 @@ footer {
     iframe { height: 400px; }
 }
 
-/* --- AJOUT POUR LE BOUTON EN SAVOIR PLUS (SUNSET) --- */
-.btn-more {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.6rem 1.2rem;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    border-radius: 50px;
-    font-weight: 700;
-    transition: var(--transition);
-    text-align: center;
-}
 
-.btn-more:hover {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
-}
 
-/* Le reste du fichier style15.css demeure inchangé comme demandé */
+/* --- MODALE SUNSET --- */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(67, 20, 7, 0.4); backdrop-filter: blur(10px); z-index: 2000;
+    justify-content: center; align-items: center;
+}
+.modal-content {
+    background: white; border-radius: var(--radius); padding: 2.5rem;
+    max-width: 800px; width: 90%; color: var(--text-dark); position: relative;
+}
+.modal-header { display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary); margin-bottom: 1.5rem; }
+.close-btn { background: none; border: none; color: var(--secondary); font-size: 2rem; cursor: pointer; }
+.modal-body h4 { color: var(--secondary); margin-top: 1.5rem; font-weight: 700; }
+.btn-more { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 0.5rem 1rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+.btn-more:hover { background: var(--primary); color: white; }
