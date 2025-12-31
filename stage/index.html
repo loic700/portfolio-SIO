@@ -23,7 +23,6 @@
             const themeLink = document.getElementById('theme-style');
             const isSunset = themeLink.getAttribute('href').includes('style15.css');
             
-            // Chemins avec ../ pour rester sur le bon style
             themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
@@ -64,13 +63,12 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <a href="page-detail-stage1.html" class="stage-clickable-card">
-                    <div class="stage-card-content">
-                        <div class="stage-info">
-                            <h4>Voir le détail du Stage 1</h4>
-                            <p>Rapport de stage, missions détaillées et compétences validées.</p>
-                        </div>
-                        <span class="btn-more-card">Voir plus ➔</span>
+                <a href="page-detail-stage1.html" class="card stage-link-card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Voir le détail du Stage 1</h3>
+                    <p>Rapport de stage, missions détaillées et compétences validées durant cette immersion.</p>
+                    <div class="voir-plus-btn">
+                        <span>En savoir plus</span> <span class="arrow">➔</span>
                     </div>
                 </a>
             </div>
@@ -87,6 +85,5 @@
     <footer>
         <p>© 2025 - Loic Kebabla</p>
     </footer>
-
 </body>
 </html>

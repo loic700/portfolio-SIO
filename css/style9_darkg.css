@@ -5,7 +5,7 @@
     /* Palette Dark Tech */
     --primary: #6366f1;       /* Indigo vibrant */
     --secondary: #a855f7;     /* Violet néon */
-    --text-dark: #f1f5f9;     /* Blanc cassé (texte principal) */
+    --text-dark: #f1f5f9;     /* Blanc cassé */
     --text-muted: #94a3b8;    /* Gris clair */
     --white: #ffffff;
     
@@ -50,7 +50,7 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 img { max-width: 100%; border-radius: var(--radius); }
 
-/* --- SPÉCIAL GOOGLE MAPS (DARK MODE) --- */
+/* --- SPÉCIAL GOOGLE MAPS --- */
 iframe {
     width: 100%;            
     height: 500px;          
@@ -59,7 +59,6 @@ iframe {
     box-shadow: var(--shadow);
     margin: 2rem 0;
     display: block;
-    /* Inverse les couleurs de la map pour qu'elle soit sombre */
     filter: grayscale(80%) invert(90%) hue-rotate(180deg);
 }
 
@@ -74,7 +73,7 @@ hr {
 
 /* --- NAVIGATION --- */
 .navbar {
-    background: rgba(15, 23, 42, 0.85); /* Fond sombre */
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 1rem 0;
@@ -96,7 +95,6 @@ hr {
 
 .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
 
-/* Styles des liens du menu */
 .nav-links a {
     font-weight: 700;
     color: var(--text-muted);
@@ -105,7 +103,6 @@ hr {
     padding-bottom: 5px;
 }
 
-/* LA BARRE ANIMÉE EN DESSOUS */
 .nav-links a::after {
     content: '';
     position: absolute; left: 0; bottom: 0; width: 0; height: 3px;
@@ -117,7 +114,6 @@ hr {
 .nav-links a:hover { color: var(--text-dark); }
 .nav-links .btn-contact::after { display: none !important; }
 
-/* Style du bouton Contact */
 .btn-contact {
     background: linear-gradient(to right, var(--primary), var(--secondary));
     color: white !important;
@@ -213,7 +209,7 @@ hr {
     font-weight: 400;
 }
 
-/* --- BOUTONS TÉLÉCHARGEMENT & SUBMIT --- */
+/* --- BOUTONS --- */
 .btn-download, .btn-submit {
     display: inline-block;
     min-width: 220px;
@@ -236,12 +232,6 @@ hr {
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
 }
 
-.btn-download:active, .btn-submit:active {
-    transform: scale(0.92);
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.1), inset 0 3px 8px rgba(0,0,0,0.5);
-    filter: brightness(1.2);
-}
-
 /* --- TAGS --- */
 .tag {
     font-size: 0.8rem; font-weight: 800; padding: 0.4rem 1rem;
@@ -251,7 +241,7 @@ hr {
 .tag.finished { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid #10b981; }
 .tag.future { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid #ef4444; }
 
-/* --- TIMELINE SPECIFIQUE --- */
+/* --- TIMELINE --- */
 .timeline-date {
     display: inline-block;
     color: var(--primary); font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
@@ -294,7 +284,7 @@ footer {
     iframe { height: 400px; }
 }
 
-/* --- BOUTON THEME (SWITCH) --- */
+/* --- BOUTON THEME --- */
 .theme-switch {
     background: transparent;
     border: 2px solid var(--text-muted);
@@ -311,35 +301,27 @@ footer {
     color: var(--primary);
 }
 
-/* --- NOUVEAU : STAGE CLIQUABLE (DARK) --- */
-.stage-clickable-card {
+/* --- NOUVEAU : STYLE CARTE STAGE 1 DARK --- */
+.stage-link-card {
     display: block;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     text-decoration: none;
-    transition: var(--transition);
-    border-left: 6px solid var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stage-clickable-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.voir-plus-btn {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.stage-card-content {
-    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+.stage-link-card:hover .arrow {
+    transform: translateX(5px);
 }
 
-.stage-info h4 { color: white; margin-bottom: 0.2rem; font-weight: 700; }
-.stage-info p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
-
-.btn-more-card {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    color: white; padding: 0.6rem 1.5rem; border-radius: 50px;
-    font-weight: 800; font-size: 0.85rem; white-space: nowrap;
+.arrow {
+    transition: transform 0.3s ease;
 }
