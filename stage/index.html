@@ -125,7 +125,7 @@
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Scripting : Déploiement Odoo 18.0</h3>
-                    <p>Automatisation complète de l'installation d'Odoo ERP avec sécurisation SSL et gestion de base de données.</p>
+                    <p>Installation automatisée d'Odoo ERP avec sécurisation SSL</p>
                     <button class="btn-more" onclick="enableModal('odoo-script')">En savoir plus →</button>
                 </article>
 
@@ -211,16 +211,13 @@
             <img src="../Documents/Stage_2_image/script-odoo.png" alt="Aperçu du script Odoo" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
 
             <h4>Pourquoi ?</h4>
-            <p>Réduire drastiquement le temps de déploiement d'un environnement ERP complexe (de 30 min à moins de 10 min) tout en garantissant une configuration sécurisée et reproductible sur des instances Debian/Ubuntu.</p>
+            <p>Réduire le temps de déploiement d'un environnement ERP complexe (passant de 30 min à 5 min) tout en garantissant une installation propre, sécurisée et immédiatement opérationnelle sur des instances Ubuntu/Debian.</p>
             
-            <h4>Comment ?</h4>
-            <p>Conception d'un script Bash orchestrant l'installation de plus de 50 dépendances système, la configuration optimisée de <strong>PostgreSQL</strong> et le paramétrage automatique du DNS (1.1.1.1) pour éviter les erreurs de résolution.</p>
+            <h4>Prérequis et Configuration</h4>
+            <p>Avant de lancer le script, une configuration manuelle du <strong>DNS (1.1.1.1)</strong> doit être effectuée sur la machine pour garantir le bon téléchargement des paquets. Le script prend ensuite le relais pour installer les dépendances et configurer le serveur web <strong>Nginx</strong> avec vos certificats SSL.</p>
             
-            <h4>Sécurité & Persistance</h4>
-            <p>Le script gère l'installation de certificats <strong>SSL</strong> via un reverse proxy <strong>Nginx</strong> et assure la haute disponibilité grâce à un service <code>systemd</code>. Pour le développement, l'usage de sessions <strong>Screen</strong> permet de maintenir le processus en arrière-plan, tandis que l'isolation des bibliothèques garantit la stabilité du système.</p>
-
-            <h4>Interopérabilité</h4>
-            <p>Mise en place de directives <em>ProxyPass</em> spécifiques pour permettre une communication fluide entre un serveur de gestion <strong>Plesk</strong> et la machine virtuelle Odoo.</p>
+            <h4>Documentation & Simplicité</h4>
+            <p>Ce projet inclut une <strong>documentation détaillée</strong> conçue pour une utilisation simple et précise. Elle guide l'utilisateur pas à pas, de la préparation de la VM jusqu'à la récupération des identifiants finaux dans le fichier de configuration.</p>
 
             <div class="modal-gallery" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
                 <h4 style="margin-bottom: 15px;">Captures d'écran du projet :</h4>
