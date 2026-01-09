@@ -46,7 +46,7 @@
             <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
             <h3>NEOTEAMS.IO cambrai</h3>
             <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-            <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
+            <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL.</p>
             
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
@@ -76,21 +76,23 @@
                     <button class="btn-more" onclick="enableModal('passbolt')">En savoir plus →</button>
                 </article>
 
-                <article class="card">
-                    <span class="tag finished">Terminé ✅</span>
-                    <h3>Mise en place d'un serveur</h3>
-                    <p>Installation et configuration complète sous Ubuntu.</p>
-                    <button class="btn-more" onclick="enableModal('pasidee')">En savoir plus →</button>
-                </article>
 
             </div>
         </div>
 
+
+
+
+
+
+
+
+
         <div class="timeline-item">
-            <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
+            <span class="timeline-date">2ème année BTS SIO (5 semaines)</span>
             <h3>NEOTEAMS.IO cambrai</h3>
             <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-            <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
+            <p>J’ai participé à l’installation et la mise en service de différents services, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
             
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
@@ -101,9 +103,9 @@
             <div class="grid-container">
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Mise en place d'un serveur</h3>
-                    <p>Installation et configuration complète sous Ubuntu.</p>
-                    <button class="btn-more" onclick="enableModal('modal-serveur')">En savoir plus →</button>
+                    <h3>Automation SIEM (Ansible)</h3>
+                    <p>Déploiement automatisé de la solution de sécurité Wazuh sur une infrastructure multi-VM.</p>
+                    <button class="btn-more" onclick="enableModal('deploy-wazuh')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
@@ -120,33 +122,36 @@
                     <button class="btn-more" onclick="enableModal('passbolt')">En savoir plus →</button>
                 </article>
 
-                <article class="card">
-                    <span class="tag finished">Terminé ✅</span>
-                    <h3>Mise en place d'un serveur</h3>
-                    <p>Installation et configuration complète sous Ubuntu.</p>
-                    <button class="btn-more" onclick="enableModal('pasidee')">En savoir plus →</button>
-                </article>
 
             </div>
         </div>
     </main>
 
-    <div class="modal" id="modal-serveur">
-        <div class="modal-content">
-            <div class="header">
-                <h3>Mise en place d'un serveur</h3>
-                <span onclick="disableModal('modal-serveur')" class="close_modal">×</span>
-            </div>
-            <div class="body">
-                <h4>Pourquoi ?</h4>
-                <p>Centraliser les ressources et sécuriser l'accès aux données locales.</p>
-                <h4>Comment ?</h4>
-                <p>Installation d'Ubuntu Server 22.04 LTS et configuration SSH.</p>
-                <h4>Détails & Aperçu technique</h4>
-                <p>Mise en place du pare-feu UFW. Ce projet a nécessité une attention particulière sur la gestion des droits.</p>
-            </div>
+
+
+
+
+    
+<div class="modal" id="deploy-wazuh">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Automatisé : Ansible & Wazuh SIEM</h3>
+            <span onclick="disableModal('deploy-wazuh')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="ton-image-ici.png" alt="Architecture Wazuh et Ansible" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+
+            <h4>Pourquoi ?</h4>
+            <p>Centraliser la surveillance de sécurité (SIEM/XDR) et automatiser le déploiement pour garantir une configuration homogène et sécurisée sur tout le parc informatique.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Création de <strong>Playbooks Ansible</strong> en YAML pour l'installation automatique du manager Wazuh et le déploiement massif d'agents sur des machines virtuelles Linux/Windows.</p>
+            
+            <h4>Détails & Aperçu technique</h4>
+            <p>Le projet inclut la configuration des règles d'alerte, la gestion des inventaires Ansible et la sécurisation des communications entre les agents et le serveur central.</p>
         </div>
     </div>
+</div>
 
     <div class="modal" id="modal-portfolio">
         <div class="modal-content">
@@ -178,22 +183,7 @@
         </div>
     </div>
 
-    <div class="modal" id="pasidee">
-        <div class="modal-content">
-            <div class="header">
-                <h3>Mise en place d'un serveur</h3>
-                <span onclick="disableModal('pasidee')" class="close_modal">×</span>
-            </div>
-            <div class="body">
-                <h4>Pourquoi ?</h4>
-                <p>Centraliser les ressources et sécuriser l'accès aux données locales.</p>
-                <h4>Comment ?</h4>
-                <p>Installation d'Ubuntu Server 22.04 LTS et configuration SSH.</p>
-                <h4>Détails & Aperçu technique</h4>
-                <p>Mise en place du pare-feu UFW. Ce projet a nécessité une attention particulière sur la gestion des droits.</p>
-            </div>
-        </div>
-    </div>
+
 
 
     <footer><p>© 2025 - Loic Kebabla</p></footer>
