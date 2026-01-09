@@ -18,11 +18,11 @@
     </script>
 
     <style>
-        /* STYLE UNIQUE POUR TOUTES LES IMAGES DES MODALS */
+        /* --- STYLE POUR LES IMAGES CLIQUABLES ET CENTRÉES --- */
         .img-zoom-clickable {
-            width: 50%; /* Taille par défaut à 50% */
+            width: 50%; /* Taille fixée à 50% */
             display: block;
-            margin: 0 auto 15px auto; /* Centrage automatique */
+            margin: 0 auto 15px auto; /* Centrage horizontal et marge basse */
             border-radius: 8px;
             cursor: zoom-in;
             transition: transform 0.2s ease;
@@ -31,7 +31,7 @@
             transform: scale(1.03);
         }
 
-        /* Style du plein écran (Lightbox) */
+        /* --- STYLE DE LA LIGHTBOX (PLEIN ÉCRAN) --- */
         #lightbox {
             display: none;
             position: fixed;
@@ -132,8 +132,8 @@
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Scripting : Update Manager</h3>
-                    <p>Interface pour le déploiement sélectif de mises à jour système via JSON.</p>
+                    <h3>Scripting : Update Manager (Ansible & Flask)</h3>
+                    <p>Script d'interface pour le déploiement sélectif de mises à jour système via JSON.</p>
                     <button class="btn-more" onclick="enableModal('update-package')">En savoir plus →</button>
                 </article>
             </div>
@@ -148,8 +148,12 @@
         </div>
         <div class="body">
             <h4>Pourquoi ?</h4>
-            <p>Automatiser le déploiement pour garantir une configuration homogène et rapide sur l'ensemble du parc informatique.</p>
-            <img src="../Documents/Stage_2_image/deploy-wazuh.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            <p>Automatiser le déploiement pour garantir une configuration homogène, rapide et sécurisée sur l'ensemble du parc informatique.</p>
+            <h4>Comment ?</h4>
+            <p>Création de <strong>Playbooks Ansible</strong> en YAML pour l'installation automatique du manager Wazuh et le déploiement massif d'agents sur des machines virtuelles Linux/Windows.</p>
+            <h4>Détails & Aperçu technique</h4>
+            <p>Le projet inclut la configuration et l'installation, la gestion des inventaires Ansible et la sécurisation des communications entre les agents et le serveur central.</p>
+            <img src="../Documents/Stage_2_image/deploy-wazuh.png" alt="Architecture Wazuh" class="img-zoom-clickable" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
@@ -162,8 +166,11 @@
         </div>
         <div class="body">
             <h4>Pourquoi ?</h4>
-            <p>Permettre un accès sécurisé via HTTPS et chiffrer les données échangées.</p>
-            <p><em>Note : Par confidentialité, aucune capture d'écran n'est divulguée ici.</em></p>
+            <p>Permettre un accès sécurisé via le protocole HTTPS, chiffrer les données échangées et éviter les messages d'alerte des navigateurs "Site non sécurisé".</p>
+            <h4>Comment ?</h4>
+            <p>Renouvellement des certificats, configuration des serveurs web pour forcer le passage du HTTP vers le HTTPS et vérification de la chaîne de certification.</p>
+            <h4>Sécurité & Confidentialité</h4>
+            <p><em>Note : Par mesure de sécurité et pour respecter la confidentialité de l'entreprise, aucune capture d'écran n'est divulguée dans cette partie.</em></p>
         </div>
     </div>
 </div>
@@ -175,10 +182,14 @@
             <span onclick="disableModal('passbolt-script')" class="close_modal">×</span>
         </div>
         <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Préparer les machines pour un déploiement automatisé via Ansible en créant un utilisateur dédié et en configurant les clés SSH de manière sécurisée.</p>
+            <h4>Comment ?</h4>
+            <p>Développement d'un script Bash pour la création automatique de l'utilisateur, génération de paires de clés SSH et configuration des droits d'accès.</p>
             <h4>Résolution de problème (DNS)</h4>
-            <p>En cas d'échec de résolution de noms, le script configure automatiquement un serveur DNS valide pour permettre l'installation.</p>
-            <img src="../Documents/Stage_2_image/script-passbolt.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
-            <img src="../Documents/Stage_2_image/script-passbolt01.png" class="img-zoom-clickable" style="width: 25%;" onclick="openLightbox(this.src)">
+            <p>Suite à des échecs d'installation liés à des problèmes de résolution de noms (DNS), j'ai enrichi le script avec une fonction de vérification : en cas d'échec, le script configure automatiquement un serveur DNS valide pour permettre la poursuite de l'installation de Passbolt.</p>
+            <img src="../Documents/Stage_2_image/script-passbolt.png" alt="Passbolt Script" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            <img src="../Documents/Stage_2_image/script-passbolt01.png" alt="Passbolt DNS" class="img-zoom-clickable" style="width: 25%;" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
@@ -190,8 +201,12 @@
             <span onclick="disableModal('odoo-script')" class="close_modal">×</span>
         </div>
         <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Réduire le temps de déploiement d'un environnement ERP complexe (passant de 30 min à 5 min) tout en garantissant une installation propre, sécurisée et immédiatement opérationnelle sur des instances Ubuntu/Debian.</p>
             <h4>Prérequis et Configuration</h4>
-            <p>Configuration manuelle du DNS (1.1.1.1) avant lancement pour garantir le téléchargement des paquets.</p>
+            <p>Avant de lancer le script, une configuration manuelle du <strong>DNS (1.1.1.1)</strong> doit être effectuée sur la machine pour garantir le bon téléchargement des paquets. Le script prend ensuite le relais pour installer les dépendances et configurer le serveur web <strong>Nginx</strong> avec vos certificats SSL.</p>
+            <h4>Documentation & Simplicité</h4>
+            <p>Ce projet inclut une <strong>documentation détaillée</strong> conçue pour une utilisation simple et précise. Elle guide l'utilisateur pas à pas, de la préparation de la VM jusqu'à la récupération des identifiants finaux dans le fichier de configuration.</p>
             <img src="../Documents/Stage_2_image/script-odoo.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             <img src="../Documents/Stage_2_image/script-odoo01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             <img src="../Documents/Stage_2_image/script-odoo02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
@@ -207,16 +222,18 @@
         </div>
         <div class="body">
             <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
-
+            <h4>Pourquoi ?</h4>
+            <p>Éviter les mises à jour "aveugles" qui peuvent casser des services critiques. Ce script permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
             <h4>Fonctionnement</h4>
+            <p>Le système repose sur un cycle automatisé entre Ansible et Python :</p>
             <ul>
-                <li><strong>Scan :</strong> Ansible récupère les paquets et génère des fichiers <strong>JSON</strong>.</li>
+                <li><strong>Scan :</strong> Un playbook Ansible récupère les paquets non à jour et génère des fichiers <strong>JSON</strong>.</li>
                 <li><strong>Interface :</strong> Le script affiche un tableau de bord dynamique pour la sélection.</li>
-                <li><strong>Action :</strong> L'utilisateur choisit les paquets via l'interface interactive.</li>
-                <li><strong>Validation :</strong> Création du fichier final utilisé pour l'installation.</li>
+                <li><strong>Validation :</strong> La sélection crée un fichier <code>selection.json</code> utilisé par Ansible pour l'installation.</li>
             </ul>
-            
-            <div class="modal-gallery" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+            <h4>Documentation</h4>
+            <p>Une documentation simple et précise accompagne ce script pour une prise en main rapide, de la phase de scan à la validation finale.</p>
+            <div style="text-align: center;">
                 <img src="../Documents/Stage_2_image/script-update01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
                 <img src="../Documents/Stage_2_image/script-update02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             </div>
