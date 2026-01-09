@@ -136,6 +136,13 @@
                     <p>Script d'interface pour le déploiement sélectif de mises à jour système via JSON.</p>
                     <button class="btn-more" onclick="enableModal('update-package')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Upgrade OS Automatisé</h3>
+                    <p>Orchestration de montées de version majeures (Debian/Ubuntu) via interface interactive.</p>
+                    <button class="btn-more" onclick="enableModal('upgrade-os')">En savoir plus →</button>
+                </article>
             </div>
         </div>
     </main>
@@ -240,6 +247,35 @@
                 <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
                 <img src="../Documents/Stage_2_image/script-update01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
                 <img src="../Documents/Stage_2_image/script-update02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+        <div class="modal" id="upgrade-os">
+        <div class="modal-content">
+            <div class="header">
+                <h3>Upgrade OS : Migration de Distribution Automatisée</h3>
+                <span onclick="disableModal('upgrade-os')" class="close_modal">×</span>
+            </div>
+            <div class="body">
+                <img src="../Documents/Stage_2_image/script-upgrade-os.png" 
+                    alt="Aperçu Upgrade OS" 
+                    class="img-zoom-clickable" 
+                    onclick="openLightbox(this.src)">
+
+                <h4>Pourquoi ?</h4>
+                <p>Réaliser des montées de version majeures (Dist-Upgrade) sur un parc de serveurs est une opération critique et chronophage. Ce script sécurise le processus en permettant de piloter la migration de chaque machine depuis une interface visuelle.</p>
+                
+                <h4>Fonctionnement</h4>
+                <p>Le livre de jeu (Playbook) orchestre la migration en plusieurs phases :</p>
+                <ul>
+                    <li><strong>Scan Initial :</strong> Récupération automatique des distributions actuelles (IP, Version, Nom de code) sur tout le parc.</li>
+                    <li><strong>Interface & Ergonomie :</strong> Utilisation d'un script web avec ajout de boutons de contrôle et amélioration du CSS pour sélectionner facilement la version cible pour chaque VM (Debian ou Ubuntu).</li>
+                    <li><strong>Migration forcée :</strong> Automatisation du changement des dépôts (<code>sources.list</code>), gestion des conflits de configuration (<code>force-confold</code>) et redémarrage automatique après succès.</li>
+                </ul>
+                
+                <h4>Documentation</h4>
+                <p>Une documentation précise accompagne ce projet pour garantir une utilisation simple, expliquant comment préparer l'inventaire et surveiller l'avancement de la migration sur les serveurs distants.</p>
+                <img src="../Documents/Stage_2_image/script-ugrade.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             </div>
         </div>
     </div>
