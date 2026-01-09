@@ -122,6 +122,12 @@
                     <button class="btn-more" onclick="enableModal('passbolt-script')">En savoir plus →</button>
                 </article>
 
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Déploiement Odoo</h3>
+                    <p>Automatisation complète de l'installation d'Odoo ERP avec isolation Python et gestion de sessions.</p>
+                    <button class="btn-more" onclick="enableModal('odoo-script')">En savoir plus →</button>
+                </article>
 
             </div>
         </div>
@@ -188,12 +194,35 @@
             
             <h4>Résolution de problème (DNS)</h4>
             <p>Suite à des échecs d'installation liés à des problèmes de résolution de noms (DNS), j'ai enrichi le script avec une fonction de vérification : en cas d'échec, le script configure automatiquement un serveur DNS valide pour permettre la poursuite de l'installation de Passbolt.</p>
-            <img src="Documents/Stage_2_image/script-passbolt.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
-            <img src="Documents/Stage_2_image/script-passbolt01.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="../Documents/Stage_2_image/script-passbolt.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="../Documents/Stage_2_image/script-passbolt01.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
 
         </div>
     </div>
 </div>
+
+<div class="modal" id="odoo-script">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Automatisée d'Odoo</h3>
+            <span onclick="disableModal('odoo-script')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Réduire le temps de déploiement d'un environnement ERP complexe (passant de 30 min à 5 min) tout en garantissant une installation propre et reproductible sur des instances Ubuntu/Debian.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Conception d'un script Bash orchestrant l'installation des dépendances système, la configuration de PostgreSQL et le clonage du code source dans un répertoire spécifique (<code>Stage_2_image</code>).</p>
+            
+            <h4>Isolation & Persistance</h4>
+            <p>Le script utilise <strong>Python Venv</strong> pour isoler les bibliothèques et éviter les conflits système. Pour assurer la disponibilité, le serveur est lancé dans une session <strong>GNU Screen</strong>, permettant au processus de tourner en arrière-plan même après la déconnexion de l'utilisateur.</p>
+            <img src="../Documents/Stage_2_image/script-odoo.png" alt="Aperçu du script Odoo" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="../Documents/Stage_2_image/script-odoo01.png" alt="Aperçu du script Odoo" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="../Documents/Stage_2_image/script-odoo02.png" alt="Aperçu du script Odoo" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        </div>
+    </div>
+</div>
+
 
 
 
