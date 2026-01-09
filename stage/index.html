@@ -221,25 +221,34 @@
             <span onclick="disableModal('update-package')" class="close_modal">×</span>
         </div>
         <div class="body">
-            <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             <h4>Pourquoi ?</h4>
             <p>Éviter les mises à jour "aveugles" qui peuvent casser des services critiques. Ce script permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
+            
             <h4>Fonctionnement</h4>
             <p>Le système repose sur un cycle automatisé entre Ansible et Python :</p>
             <ul>
                 <li><strong>Scan :</strong> Un playbook Ansible récupère les paquets non à jour et génère des fichiers <strong>JSON</strong>.</li>
-                <li><strong>Interface :</strong> Le script affiche un tableau de bord dynamique pour la sélection.</li>
+                <li><strong>Interface :</strong> Le script affiche un tableau de bord dynamique pour la sélection des paquets.</li>
+                <li><strong>Interface & Ergonomie :</strong> Ajout de boutons de contrôle (Tout Cocher, Tout Décocher, Ignorer) et amélioration du CSS pour un accès plus simple et intuitif aux informations.</li>
                 <li><strong>Validation :</strong> La sélection crée un fichier <code>selection.json</code> utilisé par Ansible pour l'installation.</li>
             </ul>
+            
             <h4>Documentation</h4>
             <p>Une documentation simple et précise accompagne ce script pour une prise en main rapide, de la phase de scan à la validation finale.</p>
+            
             <div style="text-align: center;">
+                <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
                 <img src="../Documents/Stage_2_image/script-update01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
                 <img src="../Documents/Stage_2_image/script-update02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
 
 <div id="lightbox" onclick="this.style.display='none'">
     <img id="lightbox-img" src="">
