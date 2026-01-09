@@ -143,6 +143,13 @@
                     <p>Orchestration de montées de version majeures (Debian/Ubuntu) via interface interactive.</p>
                     <button class="btn-more" onclick="enableModal('upgrade-os')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Maintenance : Augmentation Stockage</h3>
+                    <p>Extension à chaud d'un volume logique LVM suite à l'agrandissement d'un disque virtuel.</p>
+                    <button class="btn-more" onclick="enableModal('stockage-lvm')">En savoir plus →</button>
+                </article>
             </div>
         </div>
     </main>
@@ -251,6 +258,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal" id="upgrade-os">
     <div class="modal-content">
         <div class="header">
@@ -258,8 +266,8 @@
             <span onclick="disableModal('upgrade-os')" class="close_modal">×</span>
         </div>
         <div class="body">
-            <img src="../Documents/Stage_2_image/script-upgrade-os.png" 
-                 alt="Aperçu Upgrade OS" 
+            <img src="../Documents/Stage_2_image/script-ugrade.png" 
+                 alt="Interface Upgrade OS" 
                  class="img-zoom-clickable" 
                  onclick="openLightbox(this.src)">
 
@@ -270,16 +278,45 @@
             <p>Le livre de jeu (Playbook) orchestre la migration en plusieurs phases :</p>
             <ul>
                 <li><strong>Scan Initial :</strong> Récupération automatique des distributions actuelles (IP, Version, Nom de code) sur tout le parc.</li>
-                <li><strong>Interface & Ergonomie :</strong> Utilisation d'un script web avec ajout de boutons de contrôle et amélioration du CSS pour sélectionner facilement la version cible pour chaque VM (Debian ou Ubuntu).</li>
+                <li><strong>Interface & Ergonomie :</strong> Utilisation d'un script web pour sélectionner facilement la version cible pour chaque VM.</li>
                 <li><strong>Migration forcée :</strong> Automatisation du changement des dépôts (<code>sources.list</code>), gestion des conflits de configuration (<code>force-confold</code>) et redémarrage automatique après succès.</li>
             </ul>
             
-            <h4>Documentation</h4>
-            <p>Une documentation précise accompagne ce projet pour garantir une utilisation simple, expliquant comment préparer l'inventaire et surveiller l'avancement de la migration sur les serveurs distants.</p>
+            <!-- <h4>Documentation</h4>
+            <p>Une documentation précise accompagne ce projet pour garantir une utilisation simple, expliquant comment préparer l'inventaire.</p> -->
+            <img src="../Documents/Stage_2_image/script-upgrade.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+
         </div>
     </div>
 </div>
 
+<div class="modal" id="stockage-lvm">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Augmentation de Stockage (15 Go vers 150 Go)</h3>
+            <span onclick="disableModal('stockage-lvm')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-stockage.png" 
+                 alt="Maintenance Stockage" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Cette opération a été effectuée sur <strong>différentes machines virtuelles (VMs)</strong> pour augmenter leur capacité de stockage sans interruption de service, répondant ainsi aux besoins croissants de données.</p>
+            
+            <h4>Comment ?</h4>
+            <p>L'extension a été réalisée à chaud en suivant ces étapes techniques :</p>
+            <ul>
+                <li><strong>Identification :</strong> <code>lsblk</code></li>
+                <li><strong>Extension de la partition :</strong> <code>sudo growpart /dev/sda 3</code></li>
+                <li><strong>Redimensionnement du volume physique :</strong> <code>sudo pvresize /dev/sda3</code></li>
+                <li><strong>Extension du volume logique :</strong> <code>sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+                <li><strong>Mise à jour du système de fichiers :</strong> <code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 
