@@ -216,31 +216,38 @@
             </div>
         </div>
     </div>
+</div>
 
 <style>
-    .img-clickable {
+    /* Style pour l'effet de zoom au survol */
+    .img-zoom-50 {
+        width: 50%;
+        display: block;
+        margin: 0 auto 15px auto;
+        border-radius: 8px;
         cursor: zoom-in;
-        transition: transform 0.2s;
+        transition: transform 0.2s ease;
     }
-    .img-clickable:hover {
-        transform: scale(1.05);
+    .img-zoom-50:hover {
+        transform: scale(1.03);
     }
     /* Style du plein écran (Lightbox) */
     #lightbox {
         display: none;
         position: fixed;
-        z-index: 9999;
+        z-index: 10000;
         top: 0; left: 0;
         width: 100%; height: 100%;
         background: rgba(0,0,0,0.9);
         justify-content: center;
         align-items: center;
+        cursor: zoom-out;
     }
     #lightbox img {
         max-width: 90%;
         max-height: 90%;
-        border: 2px solid white;
-        border-radius: 5px;
+        border-radius: 4px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 </style>
 
@@ -253,30 +260,31 @@
         <div class="body">
             <img src="../Documents/Stage_2_image/script-update.png" 
                  alt="Aperçu" 
-                 class="img-clickable" 
-                 style="width:50%; display: block; margin: 0 auto 15px auto; border-radius: 8px;"
+                 class="img-zoom-50" 
                  onclick="openLightbox(this.src)">
 
             <h4>Pourquoi ?</h4>
-            <p>Éviter les mises à jour aveugles qui peuvent casser des services critiques. Ce projet permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
+            <p>Éviter les mises à jour "aveugles" qui peuvent casser des services critiques. Ce script permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
             
-            <h4>Fonctionnement du Workflow</h4>
-            <p>Le système repose sur un cycle automatisé :</p>
+            <h4>Fonctionnement</h4>
+            <p>Le système repose sur un cycle automatisé entre Ansible et Python :</p>
             <ul>
                 <li><strong>Scan :</strong> Un playbook Ansible récupère les paquets non à jour et génère des fichiers <strong>JSON</strong>.</li>
-                <li><strong>Script Flask :</strong> Un <strong>script Flask (Python)</strong> lit ces données pour générer un tableau de bord.</li>
-                <li><strong>Filtrage :</strong> Un <strong>filtrage en JavaScript</strong> permet de trier instantanément les paquets par nom ou par type de machine (VM/PVE).</li>
-                <li><strong>Validation :</strong> La sélection crée un <code>selection.json</code> utilisé par Ansible pour l'installation finale.</li>
+                <li><strong>Script Flask :</strong> Un <strong>script Flask (Python)</strong> lit ces données pour générer un tableau de bord dynamique.</li>
+                <li><strong>Filtrage :</strong> Un <strong>filtrage en JavaScript</strong> permet de trier les paquets par nom ou par type de machine (VM/PVE).</li>
+                <li><strong>Validation :</strong> La sélection crée un fichier <code>selection.json</code> utilisé par Ansible pour l'installation.</li>
             </ul>
             
             <h4>Documentation</h4>
-            <p>Une documentation simple et précise accompagne ce script pour permettre une prise en main rapide, expliquant comment lancer le scan et valider les mises à jour.</p>
+            <p>Une documentation simple et précise accompagne ce script pour une prise en main rapide, de la phase de scan à la validation finale.</p>
 
-            <div class="modal-gallery" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
-                <h4 style="margin-bottom: 15px; text-align: left;">Captures d'écran du projet (cliquez pour agrandir) :</h4>
-                <img src="../Documents/Stage_2_image/script-update.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
-                <img src="../Documents/Stage_2_image/script-update01.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
-                <img src="../Documents/Stage_2_image/script-update02.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
+            <div class="modal-gallery" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px;">Captures d'écran (cliquez pour agrandir) :</h4>
+                <div style="text-align: center;">
+                    <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-50" onclick="openLightbox(this.src)">
+                    <img src="../Documents/Stage_2_image/script-update01.png" class="img-zoom-50" onclick="openLightbox(this.src)">
+                    <img src="../Documents/Stage_2_image/script-update02.png" class="img-zoom-50" onclick="openLightbox(this.src)">
+                </div>
             </div>
         </div>
     </div>
@@ -292,9 +300,6 @@
         document.getElementById('lightbox').style.display = 'flex';
     }
 </script>
-
-
-</div>
 
 
 
