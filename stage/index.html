@@ -109,10 +109,10 @@
                 </article>
 
                 <article class="card">
-                    <span class="tag in-progress">En cours 🛠️</span>
-                    <h3>Portfolio Personnel</h3>
-                    <p>Développement de ce site dynamique.</p>
-                    <button class="btn-more" onclick="enableModal('modal-portfolio')">En savoir plus →</button>
+                    <span class="tag finished">En cours ⏳</span>
+                    <h3>Certifications & Veille</h3>
+                    <p>Mise à jour constante des compétences techniques et préparation de certifications professionnelles.</p>
+                    <button class="btn-more" onclick="enableModal('certif-update')">Détails des titres →</button>
                 </article>
 
                 <article class="card">
@@ -153,20 +153,24 @@
     </div>
 </div>
 
-    <div class="modal" id="modal-portfolio">
-        <div class="modal-content">
-            <div class="header">
-                <h3>Portfolio Personnel</h3>
-                <span onclick="disableModal('modal-portfolio')" class="close_modal">×</span>
-            </div>
-            <div class="body">
-                <h4>Pourquoi ?</h4>
-                <p>Créer une vitrine pro pour présenter mes stages.</p>
-                <h4>Comment ?</h4>
-                <p>HTML5, CSS3 et JavaScript.</p>
-            </div>
+<div class="modal" id="certif-update">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Certifications & Formations</h3>
+            <span onclick="disableModal('certif-update')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Maintenir un haut niveau d'expertise technique et valider officiellement mes compétences sur les technologies utilisées en entreprise.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Auto-formation via des plateformes reconnues (Cisco Networking Academy, Microsoft Learn, OpenClassrooms) et préparation aux examens de certification officiels.</p>
+            
+            <h4>Détails & Objectifs</h4>
+            <p>Cette démarche inclut la révision des fondamentaux réseaux, l'apprentissage des nouvelles normes de cybersécurité et la maîtrise des outils d'administration système modernes.</p>
         </div>
     </div>
+</div>
 
     <div class="modal" id="passbolt">
         <div class="modal-content">
