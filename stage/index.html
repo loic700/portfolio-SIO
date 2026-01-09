@@ -118,8 +118,8 @@
         </div>
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Update Manager : Ansible & Flask</h3>
-                    <p>Interface de gestion granulaire pour le déploiement de mises à jour système sur parc multi-VM.</p>
+                    <h3>Scripting : Update Manager (Ansible & Flask)</h3>
+                    <p>Script d'interface pour le déploiement sélectif de mises à jour système via JSON.</p>
                     <button class="btn-more" onclick="enableModal('update-package')">En savoir plus →</button>
                 </article>
     </main>
@@ -217,6 +217,33 @@
         </div>
     </div>
 
+<style>
+    .img-clickable {
+        cursor: zoom-in;
+        transition: transform 0.2s;
+    }
+    .img-clickable:hover {
+        transform: scale(1.05);
+    }
+    /* Style du plein écran (Lightbox) */
+    #lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
+    #lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+</style>
+
 <div class="modal" id="update-package">
     <div class="modal-content">
         <div class="header">
@@ -224,34 +251,50 @@
             <span onclick="disableModal('update-package')" class="close_modal">×</span>
         </div>
         <div class="body">
-            <img src="../Documents/Stage_2_image/script-update.png" alt="Interface Update Package" class="modal-image" style="width:50%; display: block; margin: 0 auto 15px auto; border-radius: 8px;">
+            <img src="../Documents/Stage_2_image/script-update.png" 
+                 alt="Aperçu" 
+                 class="img-clickable" 
+                 style="width:50%; display: block; margin: 0 auto 15px auto; border-radius: 8px;"
+                 onclick="openLightbox(this.src)">
 
             <h4>Pourquoi ?</h4>
-            <p>Éviter les mises à jour aveugles qui peuvent casser des services critiques. L'objectif est de permettre à un administrateur de choisir précisément quel paquet mettre à jour sur quelle machine (PVE ou VM) via une interface visuelle simple.</p>
+            <p>Éviter les mises à jour aveugles qui peuvent casser des services critiques. Ce projet permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
             
             <h4>Fonctionnement du Workflow</h4>
-            <p>Le projet repose sur un cycle automatisé en 4 étapes :</p>
+            <p>Le système repose sur un cycle automatisé :</p>
             <ul>
-                <li><strong>Scan :</strong> Un playbook Ansible récupère la liste des paquets non à jour sur les serveurs distants et génère des rapports <strong>JSON</strong>.</li>
-                <li><strong>Interface :</strong> Une application <strong>Flask (Python)</strong> lit ces fichiers pour afficher un tableau de bord dynamique avec filtres par type de machine.</li>
-                <li><strong>Sélection :</strong> L'utilisateur coche les paquets souhaités, ce qui génère un fichier de configuration <code>selection.json</code>.</li>
-                <li><strong>Déploiement :</strong> Le playbook reprend la main pour installer uniquement la sélection, ferme l'interface web et nettoie les fichiers temporaires.</li>
+                <li><strong>Scan :</strong> Un playbook Ansible récupère les paquets non à jour et génère des fichiers <strong>JSON</strong>.</li>
+                <li><strong>Script Flask :</strong> Un <strong>script Flask (Python)</strong> lit ces données pour générer un tableau de bord.</li>
+                <li><strong>Filtrage :</strong> Un <strong>filtrage en JavaScript</strong> permet de trier instantanément les paquets par nom ou par type de machine (VM/PVE).</li>
+                <li><strong>Validation :</strong> La sélection crée un <code>selection.json</code> utilisé par Ansible pour l'installation finale.</li>
             </ul>
             
-            <h4>Points Techniques Clés</h4>
-            <p>Développement d'une interface légère avec filtrage en JavaScript temps réel, gestion des signaux pour la fermeture propre du site et parsing dynamique de données JSON pour l'interaction entre Ansible et Python.</p>
-
             <h4>Documentation</h4>
-            <p>Une documentation technique accompagne l'outil pour expliquer l'intégration au serveur de déploiement et la gestion des rapports d'erreurs en cas d'échec de mise à jour.</p>
+            <p>Une documentation simple et précise accompagne ce script pour permettre une prise en main rapide, expliquant comment lancer le scan et valider les mises à jour.</p>
 
             <div class="modal-gallery" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
-                <h4 style="margin-bottom: 15px; text-align: left;">Captures d'écran du projet :</h4>
-                <img src="../Documents/Stage_2_image/script-update.png" alt="Aperçu Dashboard" class="modal-image" style="width:50%; border-radius: 8px; margin-bottom: 15px;">
-                <img src="../Documents/Stage_2_image/script-update01.png" alt="Aperçu Sélection" class="modal-image" style="width:50%; border-radius: 8px; margin-bottom: 15px;">
-                <img src="../Documents/Stage_2_image/script-update02.png" alt="Aperçu Validation" class="modal-image" style="width:50%; border-radius: 8px; margin-bottom: 15px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Captures d'écran du projet (cliquez pour agrandir) :</h4>
+                <img src="../Documents/Stage_2_image/script-update.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_2_image/script-update01.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_2_image/script-update02.png" class="img-clickable" style="width:50%; border-radius: 8px; margin-bottom: 15px;" onclick="openLightbox(this.src)">
             </div>
         </div>
     </div>
+</div>
+
+<div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+</script>
+
+
+</div>
 
 
 
