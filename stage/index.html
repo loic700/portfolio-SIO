@@ -117,9 +117,9 @@
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
-                    <h3>Mise en place de Passbolt</h3>
-                    <p>Sécurisation des mots de passe en entreprise.</p>
-                    <button class="btn-more" onclick="enableModal('passbolt')">En savoir plus →</button>
+                    <h3>Scripting : Déploiement Passbolt</h3>
+                    <p>Automatisation de l'installation et résolution de problèmes réseau (DNS) via script.</p>
+                    <button class="btn-more" onclick="enableModal('passbolt-script')">En savoir plus →</button>
                 </article>
 
 
@@ -172,20 +172,28 @@
     </div>
 </div>
 
-    <div class="modal" id="passbolt">
-        <div class="modal-content">
-            <div class="header">
-                <h3>Mise en place de Passbolt</h3>
-                <span onclick="disableModal('passbolt')" class="close_modal">×</span>
-            </div>
-            <div class="body">
-                <h4>Pourquoi ?</h4>
-                <p>Sécuriser le partage des mots de passe.</p>
-                <h4>Comment ?</h4>
-                <p>Déploiement sur Debian avec Docker.</p>
-            </div>
+<div class="modal" id="passbolt-script">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Scriptée & Troubleshooting</h3>
+            <span onclick="disableModal('passbolt-script')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+
+            <h4>Pourquoi ?</h4>
+            <p>Préparer les machines pour un déploiement automatisé via Ansible en créant un utilisateur dédié et en configurant les clés SSH de manière sécurisée.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Développement d'un script Bash pour la création automatique de l'utilisateur, génération de paires de clés SSH et configuration des droits d'accès.</p>
+            
+            <h4>Résolution de problème (DNS)</h4>
+            <p>Suite à des échecs d'installation liés à des problèmes de résolution de noms (DNS), j'ai enrichi le script avec une fonction de vérification : en cas d'échec, le script configure automatiquement un serveur DNS valide pour permettre la poursuite de l'installation de Passbolt.</p>
+            <img src="Documents/Stage_2_image/script-passbolt.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="Documents/Stage_2_image/script-passbolt01.png" alt="Extrait du script Passbolt" class="modal-image" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+
         </div>
     </div>
+</div>
 
 
 
