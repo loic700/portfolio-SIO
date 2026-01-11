@@ -150,6 +150,13 @@
                     <p>Extension à chaud d'un volume logique LVM suite à l'agrandissement d'un disque virtuel.</p>
                     <button class="btn-more" onclick="enableModal('stockage-lvm')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Déploiement n8n (Docker)</h3>
+                    <p>Installation de l'outil d'automatisation n8n sous Docker pour un client avec persistance des données.</p>
+                    <button class="btn-more" onclick="enableModal('n8n-docker')">En savoir plus →</button>
+                </article>
             </div>
         </div>
     </main>
@@ -310,6 +317,34 @@
     </div>
 </div>
 
+<div class="modal" id="n8n-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation n8n sous Docker pour un Client</h3>
+            <span onclick="disableModal('n8n-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-n8n.png" 
+                 alt="Déploiement n8n Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Mettre à disposition une plateforme d'automatisation de workflows puissante (n8n) de manière isolée et sécurisée. L'utilisation de Docker permet une gestion simplifiée des mises à jour et une meilleure portabilité pour le client.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Le déploiement a été réalisé en utilisant la technologie des conteneurs pour garantir la stabilité du service :</p>
+            <ul>
+                <li><strong>Conteneurisation :</strong> Utilisation de <strong>Docker</strong> et <strong>Docker-compose</strong> pour orchestrer le service n8n.</li>
+                <li><strong>Persistance :</strong> Configuration de volumes Docker pour sauvegarder les workflows et les bases de données du client, évitant toute perte de données en cas de redémarrage.</li>
+                <li><strong>Sécurisation :</strong> Paramétrage de l'accès via un reverse proxy pour assurer une connexion sécurisée.</li>
+            </ul>
+
+            <h4>Bénéfices Client</h4>
+            <p>Cette installation permet au client de créer des automatisations entre différents services (API, bases de données, outils SaaS) sur une infrastructure robuste dont les ressources sont isolées du reste du système.</p>
+        </div>
+    </div>
+</div>
 
 
 
