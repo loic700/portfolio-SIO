@@ -97,6 +97,12 @@
                     <button class="btn-more" onclick="enableModal('stockage-lvm')">En savoir plus →</button>
                 </article>
 
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Docker : Webmail Roundcube</h3>
+                    <p>Installation et liaison d'un client Roundcube à une base de données mailserver pour le domaine neoresilia.fr.</p>
+                    <button class="btn-more" onclick="enableModal('roundcube-docker')">En savoir plus →</button>
+                </article>
             </div>
         </div>
 
@@ -430,6 +436,42 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="roundcube-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Roundcube (Docker) - neoresilia.fr</h3>
+            <span onclick="disableModal('roundcube-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/script-roundcube.png" 
+                 alt="Interface Roundcube Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>L'objectif était de mettre en place une interface Webmail moderne et fluide pour les utilisateurs du domaine <strong>neoresilia.fr</strong>, en utilisant l'isolation logicielle pour faciliter la maintenance.</p>
+            
+            <h4>Comment ?</h4>
+            <p>La mise en production a été réalisée via une architecture conteneurisée :</p>
+            <ul>
+                <li><strong>Conteneurisation :</strong> Déploiement de l'image Docker <strong>Roundcube</strong> personnalisée pour répondre aux besoins du domaine.</li>
+                <li><strong>Liaison Base de Données :</strong> Configuration des paramètres de connexion pour relier le client Webmail à la base de données existante du <strong>mailserver</strong>.</li>
+                <li><strong>Interconnexion :</strong> Paramétrage des protocoles IMAP et SMTP pour permettre la lecture et l'envoi d'e-mails sécurisés sur l'infrastructure.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Utilisation de Docker Compose, gestion de base de données MariaDB/MySQL et sécurisation des échanges via certificats SSL.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Aperçu technique :</h4>
+                <img src="../Documents/Stage_1_image/script-roundcube01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <div id="lightbox" onclick="this.style.display='none'">
