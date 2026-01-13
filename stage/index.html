@@ -106,6 +106,13 @@
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
+                    <h3>SISR : Serveur de Développement (LAMP)</h3>
+                    <p>Installation et configuration d'une pile LAMP complète pour les besoins d'un stagiaire développeur.</p>
+                    <button class="btn-more" onclick="enableModal('lamp-dev')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
                     <h3>Docker : Webmail Roundcube</h3>
                     <p>Installation et liaison d'un client Roundcube à une base de données mailserver pour le domaine neoresilia.fr.</p>
                     <button class="btn-more" onclick="enableModal('roundcube-docker')">En savoir plus →</button>
@@ -123,6 +130,13 @@
                     <h3>SISR : Gestion de Flotte (MDM)</h3>
                     <p>Installation du service Headwind MDM pour la gestion centralisée de terminaux Android (Tablettes/Smartphones).</p>
                     <button class="btn-more" onclick="enableModal('mdm-headwind')">En savoir plus →</button>
+                </article>
+            
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Docker : Instance Nextcloud</h3>
+                    <p>Mise en place d'un environnement Nextcloud sous Docker pour les tests de production d'un stagiaire développeur.</p>
+                    <button class="btn-more" onclick="enableModal('nextcloud-docker')">En savoir plus →</button>
                 </article>
             </div>
         </div>
@@ -551,6 +565,73 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="nextcloud-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Nextcloud (Docker) pour Tests de Prod</h3>
+            <span onclick="disableModal('nextcloud-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-nextcloud.png" 
+                 alt="Instance Nextcloud Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>L'objectif était de fournir rapidement un environnement de stockage et de collaboration fonctionnel sous <strong>Docker</strong> afin de permettre à un autre stagiaire développeur de réaliser des tests de production dans un cadre isolé et contrôlé.</p>
+            
+            <h4>Réalisation Technique</h4>
+            <ul>
+                <li><strong>Déploiement Docker :</strong> Utilisation de Docker et Docker-compose pour monter l'instance Nextcloud et sa base de données associée.</li>
+                <li><strong>Configuration de Test :</strong> Paramétrage spécifique pour simuler des conditions de production et permettre au développeur d'éprouver ses scripts ou applications.</li>
+                <li><strong>Gestion de la persistance :</strong> Mise en place de volumes Docker pour assurer la sécurité des données de test durant toute la phase de développement.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Conteneurisation Docker, stack LAMP/LEMP interne au conteneur, et gestion des droits d'accès pour l'utilisateur final.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="lamp-dev">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation d'un Serveur LAMP pour Développement</h3>
+            <span onclick="disableModal('lamp-dev')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-lamp.png" 
+                 alt="Architecture Serveur LAMP" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Fournir à un autre stagiaire développeur un environnement de travail standardisé et performant pour le développement, l'hébergement et le test d'applications web basées sur PHP.</p>
+            
+            <h4>Réalisation Technique</h4>
+            <p>Le déploiement de la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP) a été réalisé en configurant chaque couche pour assurer une interopérabilité maximale :</p>
+            <ul>
+                <li><strong>Système :</strong> Préparation et durcissement de base du serveur sous Linux.</li>
+                <li><strong>Serveur Web :</strong> Installation d'<strong>Apache</strong> avec configuration des Virtual Hosts pour isoler les différents projets.</li>
+                <li><strong>Base de données :</strong> Mise en place de <strong>MariaDB</strong>, incluant la création d'utilisateurs dédiés et la gestion des privilèges.</li>
+                <li><strong>Environnement PHP :</strong> Installation de <strong>PHP</strong> et des modules nécessaires au bon fonctionnement des scripts du développeur.</li>
+            </ul>
+
+            <h4>Collaboration interne</h4>
+            <p>Cette infrastructure stable a permis au développeur de mener à bien ses phases de programmation et de tests applicatifs dans un environnement conforme aux standards de production.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Vue technique du serveur :</h4>
+                <img src="../Documents/Stage_2_image/script-lamp.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <div id="lightbox" onclick="this.style.display='none'">
