@@ -117,6 +117,13 @@
                     <p>Installation de Dolibarr et intégration du module Sellyoursas pour la gestion automatisée d'abonnements SaaS.</p>
                     <button class="btn-more" onclick="enableModal('dolibarr-setup')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>SISR : Gestion de Flotte (MDM)</h3>
+                    <p>Installation du service Headwind MDM pour la gestion centralisée de terminaux Android (Tablettes/Smartphones).</p>
+                    <button class="btn-more" onclick="enableModal('mdm-headwind')">En savoir plus →</button>
+                </article>
             </div>
         </div>
 
@@ -180,17 +187,17 @@
                 </article>
 
                 <article class="card">
-                    <span class="tag stopped" style="background-color: #e74c3c; color: white;">Arrêté 🛑</span>
-                    <h3>Service Applicatif Multi-Clients</h3>
-                    <p>Mise en production de services personnalisés avec gestion d'API et hébergement sous Plesk.</p>
-                    <button class="btn-more" onclick="enableModal('replyguy')">En savoir plus →</button>
-                </article>
-
-                <article class="card">
                     <span class="tag finished">Terminé ✅</span>
                     <h3>Infrastructure : Pare-feu & Sécurité</h3>
                     <p>Installation et configuration réseau sous OPNSense, puis migration vers pfSense selon les besoins client.</p>
                     <button class="btn-more" onclick="enableModal('firewall-setup')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag stopped" style="background-color: #e74c3c; color: white;">Arrêté 🛑</span>
+                    <h3>Service Applicatif Multi-Clients</h3>
+                    <p>Mise en production de services personnalisés avec gestion d'API et hébergement sous Plesk.</p>
+                    <button class="btn-more" onclick="enableModal('replyguy')">En savoir plus →</button>
                 </article>
 
             </div>
@@ -514,7 +521,36 @@
         </div>
     </div>
 </div>
+<div class="modal" id="mdm-headwind">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation du service Headwind MDM</h3>
+            <span onclick="disableModal('mdm-headwind')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/headwind-mdm.png" 
+                 alt="Console Headwind MDM" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
 
+            <h4>Pourquoi ?</h4>
+            <p>Mettre en place une solution de <strong>Mobile Device Management (MDM)</strong> pour permettre à l'entreprise d'administrer à distance sa future flotte d'appareils Android et d'en sécuriser les usages.</p>
+            
+            <h4>Réalisation</h4>
+            <p>Le projet s'est concentré sur la mise en place de l'infrastructure logicielle :</p>
+            <ul>
+                <li><strong>Installation du service :</strong> Déploiement complet et configuration du serveur <strong>Headwind MDM</strong> sur une plateforme Linux.</li>
+                <li><strong>Préparation de la console :</strong> Paramétrage de l'interface d'administration pour accueillir les futurs terminaux.</li>
+                <li><strong>Limitation matérielle :</strong> La configuration finale et l'enrôlement des appareils n'ont pas pu être réalisés, car les téléphones et tablettes n'ont pas été reçus durant la période de stage.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Serveur sous Linux, Interface de gestion web sécurisée.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div id="lightbox" onclick="this.style.display='none'">
