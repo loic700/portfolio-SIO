@@ -92,6 +92,13 @@
 
                 <article class="card">
                     <span class="tag finished">Terminé ✅</span>
+                    <h3>Sécurisation HTTPS (SSL)</h3>
+                    <p>Mise à jour et installation de certificats SSL pour garantir la sécurité des accès web.</p>
+                    <button class="btn-more" onclick="enableModal('certif-ssl')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
                     <h3>Maintenance : Augmentation Stockage</h3>
                     <p>Extension à chaud d'un volume logique LVM suite à l'agrandissement d'un disque virtuel.</p>
                     <button class="btn-more" onclick="enableModal('stockage-lvm')">En savoir plus →</button>
@@ -102,6 +109,13 @@
                     <h3>Docker : Webmail Roundcube</h3>
                     <p>Installation et liaison d'un client Roundcube à une base de données mailserver pour le domaine neoresilia.fr.</p>
                     <button class="btn-more" onclick="enableModal('roundcube-docker')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>ERP/CRM : Dolibarr & Sellyoursas</h3>
+                    <p>Installation de Dolibarr et intégration du module Sellyoursas pour la gestion automatisée d'abonnements SaaS.</p>
+                    <button class="btn-more" onclick="enableModal('dolibarr-setup')">En savoir plus →</button>
                 </article>
             </div>
         </div>
@@ -128,13 +142,6 @@
                     <h3>Automatisation Wazuh avec Ansible</h3>
                     <p>Déploiement automatisé de la solution de sécurité Wazuh sur une infrastructure multi-VM.</p>
                     <button class="btn-more" onclick="enableModal('deploy-wazuh')">En savoir plus →</button>
-                </article>
-
-                <article class="card">
-                    <span class="tag finished">Terminé ✅</span>
-                    <h3>Sécurisation HTTPS (SSL)</h3>
-                    <p>Mise à jour et installation de certificats SSL pour garantir la sécurité des accès web.</p>
-                    <button class="btn-more" onclick="enableModal('certif-ssl')">En savoir plus →</button>
                 </article>
 
                 <article class="card">
@@ -471,6 +478,42 @@
     </div>
 </div>
 
+<div class="modal" id="dolibarr-setup">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Dolibarr et Module Sellyoursas</h3>
+            <span onclick="disableModal('dolibarr-setup')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-dolibarr.png" 
+                 alt="Interface Dolibarr et Sellyoursas" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Mettre en place une solution complète de gestion (ERP/CRM) capable de gérer non seulement l'activité commerciale classique, mais aussi la vente et le suivi automatisé de services logiciels (SaaS) via le module dédié <strong>Sellyoursas</strong>.</p>
+            
+            <h4>Mise en Œuvre</h4>
+            <p>Le projet a nécessité une configuration précise de l'environnement et l'utilisation de méthodes de déploiement modernes :</p>
+            <ul>
+                <li><strong>Installation de Dolibarr :</strong> Déploiement réalisé à l'aide de <strong>GitHub</strong> pour récupérer les sources officielles sur une pile <strong>LEMP</strong> (Linux, Nginx, MariaDB, PHP), permettant un meilleur suivi des versions.</li>
+                <li><strong>Intégration Sellyoursas :</strong> Installation, activation et paramétrage du module tiers pour la gestion des produits d'abonnement et l'automatisation des accès clients.</li>
+                <li><strong>Base de Données :</strong> Configuration de <strong>MariaDB</strong> pour assurer la persistance et la sécurité des données clients et contractuelles.</li>
+                <li><strong>Sécurisation SSL :</strong> Mise en place de certificats pour garantir la confidentialité et la sécurité des échanges sur le portail de gestion.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Pile LEMP, PHP 8.x, Git (GitHub) pour le déploiement des sources, et sécurisation HTTPS.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Aperçu de la solution :</h4>
+                <img src="../Documents/Stage_2_image/script-dolibarr01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_2_image/script-dolibarr02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
