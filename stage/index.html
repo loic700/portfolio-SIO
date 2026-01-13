@@ -157,6 +157,13 @@
                     <p>Installation de l'outil d'automatisation n8n sous Docker pour un client avec persistance des données.</p>
                     <button class="btn-more" onclick="enableModal('n8n-docker')">En savoir plus →</button>
                 </article>
+
+                <article class="card">
+                    <span class="tag stopped" style="background-color: #e74c3c; color: white;">Arrêté 🛑</span>
+                    <h3>Service Applicatif Multi-Clients</h3>
+                    <p>Mise en production de services personnalisés avec gestion d'API et hébergement sous Plesk.</p>
+                    <button class="btn-more" onclick="enableModal('service-client-stop')">En savoir plus →</button>
+                </article>
             </div>
         </div>
     </main>
@@ -342,6 +349,34 @@
 
             <h4>Bénéfices Client</h4>
             <p>Cette installation permet au client de créer des automatisations entre différents services (API, bases de données, outils SaaS) sur une infrastructure robuste dont les ressources sont isolées du reste du système.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="service-client-pending">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement et Maintenance : Service Tiers</h3>
+            <span onclick="disableModal('service-client-pending')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-production.png" 
+                 alt="Gestion de production" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Ce projet visait à déployer et maintenir une application personnalisée pour plusieurs clients, nécessitant une mise en production sécurisée et une gestion rigoureuse des accès.</p>
+            
+            <h4>Mise en Œuvre Technique</h4>
+            <ul>
+                <li><strong>Gestion via Plesk :</strong> Configuration des environnements d'hébergement et des domaines pour chaque client.</li>
+                <li><strong>Configuration API :</strong> Modification et mise à jour des clés API pour assurer la connectivité des services.</li>
+                <li><strong>Tests de production :</strong> Mise en place d'instances de test pour valider les fonctionnalités.</li>
+            </ul>
+
+            <h4>Statut du Projet</h4>
+            <p style="color: #e67e22; font-weight: bold;">⚠️ Projet non finalisé : je n'ai pas reçu de nouvelles du développeur externe pour terminer l'intégration et finaliser le projet.</p>
         </div>
     </div>
 </div>
