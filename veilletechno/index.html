@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Loic Kebabla - Veille Technologique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
@@ -18,19 +18,10 @@
     </script>
 </head>
 <body>
-<script>
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            
-            // Chemins avec ../ pour rester sur le bon style
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
-            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
-        }
-    </script>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">L.K</a>
+            <a href="../index.html" class="logo">L.K</a>
             <ul class="nav-links">
                 <li><a href="../">Accueil</a></li>
                 <li><a href="../diplomes/">Diplômes</a></li>
@@ -40,32 +31,114 @@
                 <li><a href="." class="active">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                
                 <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main class="container">
         <section class="hero-small">
             <h1>Veille Technologique</h1>
-            <p>Sujet :.</p>
+            <p>Mon parcours pour comprendre comment l'IA change notre façon de gérer les serveurs et les réseaux.</p>
         </section>
 
-        <div class="container">
-            
-            <div class="grid-container">
-                </div>
+        <h2 class="section-title">Comment j'ai suivi l'IA : mes sources clés (2024 - 2026)</h2>
 
-            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 24/09/2025</p>
+        <div class="grid-container">
+
+            <article class="card">
+                <span class="tag finished">Février 2026</span>
+                <h3>Les priorités des responsables informatiques</h3>
+                <p>C'est ma recherche la plus récente. On voit que pour cette année, la priorité est de rendre les systèmes plus intelligents pour mieux résister aux pannes et aux attaques.</p>
+                <a href="https://synapsys-groupe.com/tendances-priorites-dsi-2026/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Consulter l'étude</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Janvier 2026</span>
+                <h3>Des serveurs qui se réparent tout seuls</h3>
+                <p>J'ai découvert des outils qui ne se contentent plus de surveiller : ils analysent la panne et essaient de la corriger eux-mêmes instantanément.</p>
+                <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'article</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Janvier 2026</span>
+                <h3>Le matériel spécialisé pour l'IA</h3>
+                <p>Le matériel évolue aussi. Les nouveaux serveurs en entreprise sont maintenant faits pour faire tourner de l'IA sans avoir besoin d'envoyer des données sur internet.</p>
+                <a href="https://iren.com/resources/blog/the-state-of-ai-infrastructure-5-defining-trends-for-2026" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Voir les tendances</a>
+            </article>
+
+            <article class="card">
+                <span class="tag in-progress">Août 2025</span>
+                <h3>Un assistant pour aider à la sécurité</h3>
+                <p>Microsoft a sorti un outil qui aide les techniciens à comprendre les cyberattaques plus vite en leur expliquant les menaces comme un collègue le ferait.</p>
+                <a href="https://www.calpcc.com/new-in-microsoft-365-copilot-august-2025/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Découvrir l'outil</a>
+            </article>
+
+            <article class="card">
+                <span class="tag in-progress">Mai 2025</span>
+                <h3>Le réseau qui s'adapte aux utilisateurs</h3>
+                <p>J'ai trouvé cet article qui explique comment le réseau peut maintenant choisir de privilégier une visio-conférence importante plutôt que des téléchargements de fichiers.</p>
+                <a href="https://www.cio-online.com/actualites/lire-comment-l-ia-va-transformer-les-reseaux-d-entreprise-16303.html" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'analyse</a>
+            </article>
+
+            <article class="card">
+                <span class="tag in-progress">Janvier 2025</span>
+                <h3>Bloquer les virus en quelques secondes</h3>
+                <p>Ce rapport explique comment on utilise l'IA pour bloquer les hackers presque instantanément, même s'ils utilisent des virus que l'on ne connaît pas encore.</p>
+                <a href="https://www.crowdstrike.com/fr-fr/global-threat-report/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Voir le rapport</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Décembre 2024</span>
+                <h3>L'IA peut-elle créer sa propre intelligence ?</h3>
+                <p>J'ai trouvé cette réflexion sur le fait que si l'IA peut coder, elle pourrait un jour créer d'autres IA. C'est fascinant pour le futur de nos outils informatiques.</p>
+                <a href="https://imtech.imt.fr/2024/12/17/chatgpt-alphacode-si-les-ia-peuvent-coder-peuvent-elles-creer-des-ia/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'article</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Décembre 2024</span>
+                <h3>Automatiser avec l'IA (Red Hat Ansible)</h3>
+                <p>Red Hat montre comment l'IA aide à créer des scripts pour gérer les serveurs. C'est un gain de temps énorme pour un technicien et ça évite les erreurs de frappe.</p>
+                <a href="https://www.redhat.com/fr/blog/automation-and-ai-revolution" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Voir l'article</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Octobre 2024</span>
+                <h3>Préparer les centres de données</h3>
+                <p>Cisco montrait déjà fin 2024 que pour être efficace aujourd'hui, les centres de données devaient être prêts à accueillir les nouvelles technologies d'IA.</p>
+                <a href="https://techxmedia.com/en/cisco-report-89-of-it-pros-to-implement-ai-ready-data-centers-by-2026/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Consulter l'actu</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Mars 2024</span>
+                <h3>Un Wi-Fi plus "intelligent"</h3>
+                <p>C'est le moment où j'ai commencé à m'intéresser au Wi-Fi qui apprend tout seul pour éviter les ralentissements quand il y a trop de monde au bureau.</p>
+                <a href="https://www.nomios.com/events/ai-native-now-the-next-era/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">En savoir plus</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Janvier 2024</span>
+                <h3>Trier les messages d'erreur automatiquement</h3>
+                <p>C'est ma source la plus ancienne. Elle montrait déjà que l'IA peut nous aider à faire le tri dans les milliers d'alertes que reçoivent les techniciens chaque jour.</p>
+                <a href="https://www.elastic.co/blog/2026-observability-trends-costs-business-impact" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'article</a>
+            </article>
 
         </div>
+
+        <p style="margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Mise à jour régulière de ma veille technologique — Loïc Kebabla</p>
     </main>
 
     <footer>
         <p>&copy; 2026 - Loic Kebabla</p>
     </footer>
 
-
+    <script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+        }
+    </script>
 </body>
 </html>
